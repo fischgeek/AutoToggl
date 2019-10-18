@@ -92,11 +92,11 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\SharedLibrary\SharedLibrary.csproj">
+    <ProjectReference Include="..\SharedLibrary\SharedLibrary.csproj">
       <Project>{3467f34e-fe77-461a-88c7-af7c1f1c0619}</Project>
       <Name>SharedLibrary</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\TogglConnect\TogglConnect\TogglConnect.csproj">
+    <ProjectReference Include="..\TogglConnect\TogglConnect\TogglConnect.csproj">
       <Project>{70064453-40da-479a-94b4-025faf835d27}</Project>
       <Name>TogglConnect</Name>
     </ProjectReference>
