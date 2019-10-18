@@ -1,0 +1,6 @@
+[submodule "TogglConnect"]
+	path = TogglConnect
+	url = file:///c/dev/TogglConnect
+[submodule "SharedLibrary"]
+	path = SharedLibrary
+	url = file:///c/dev/SharedLibrary
