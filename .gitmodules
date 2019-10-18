@@ -1,6 +1,1 @@
-[submodule "TogglConnect"]
-	path = TogglConnect
-	url = https://github.com/fischgeek/TogglConnect
-[submodule "SharedLibrary"]
-	path = SharedLibrary
-	url = https://github.com/fischgeek/SharedLibrary
+
