@@ -22,7 +22,6 @@ namespace AutoToggl
         public Main()
         {
             InitializeComponent();
-            
             timer.Interval = 3000;
             timer.Tick += Timer_Tick;
             HideConsole();
