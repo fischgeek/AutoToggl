@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using TogglConnect;
 using SharedLibrary;
-//using DesktopProjectDataHandler;
+using DesktopProjectDataHandler;
 
 namespace AutoToggl
 {
@@ -17,14 +17,17 @@ namespace AutoToggl
     {
         private static TogglBase tb = TogglBase.GetInstance();
         Timer timer = new Timer();
-        //DataHandler dh = DataHandler.GetInstance();
+        DataHandler dh = DataHandler.GetInstance();
+        Settings settings;
 
         public Main()
         {
             InitializeComponent();
-            timer.Interval = 3000;
+            settings = dh.GetSettings();
+            timer.Interval = settings.CheckInterval;
             timer.Tick += Timer_Tick;
             HideConsole();
+            tb.Init(settings.TogglAPIKey, settings.TogglWorkspaceId);
         }
 
         private void Timer_Tick(object sender, EventArgs e)
@@ -40,12 +43,6 @@ namespace AutoToggl
         private void Main_Shown(object sender, EventArgs e)
         {
             timer.Start();
-        }
-
-        private void lnkConfigureProjects_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
-        {
-            ConfigureProjects cp = new ConfigureProjects();
-            cp.Show();
         }
 
         private void lnkToggleConsole_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
@@ -74,6 +71,27 @@ namespace AutoToggl
             this.Height = 300;
             richTextBox1.Height = 400;
             this.Refresh();
+        }
+
+        private void picMenu_MouseEnter(object sender, EventArgs e)
+        {
+            picMenu.Image = Properties.Resources.menu_hover;
+        }
+
+        private void picMenu_MouseLeave(object sender, EventArgs e)
+        {
+            picMenu.Image = Properties.Resources.menu;
+        }
+
+        private void picMenu_MouseHover(object sender, EventArgs e)
+        {
+        }
+
+        private void picMenu_Click(object sender, EventArgs e)
+        {
+            FormProvider.Menu.Show();
+            //ConfigureProjects cp = new ConfigureProjects();
+            //cp.Show();
         }
     }
 

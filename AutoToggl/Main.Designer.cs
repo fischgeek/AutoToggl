@@ -30,9 +30,10 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.lnkConfigureProjects = new System.Windows.Forms.LinkLabel();
             this.lnkToggleConsole = new System.Windows.Forms.LinkLabel();
             this.richTextBox1 = new System.Windows.Forms.RichTextBox();
+            this.picMenu = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.picMenu)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -41,7 +42,7 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Segoe UI", 72F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.DodgerBlue;
-            this.label1.Location = new System.Drawing.Point(609, -13);
+            this.label1.Location = new System.Drawing.Point(612, -17);
             this.label1.Margin = new System.Windows.Forms.Padding(0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(211, 128);
@@ -54,7 +55,7 @@
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.DodgerBlue;
-            this.label2.Location = new System.Drawing.Point(9, 26);
+            this.label2.Location = new System.Drawing.Point(9, 74);
             this.label2.Margin = new System.Windows.Forms.Padding(0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(205, 37);
@@ -67,23 +68,11 @@
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(12, 8);
+            this.label3.Location = new System.Drawing.Point(13, 56);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(65, 18);
             this.label3.TabIndex = 4;
             this.label3.Text = "Tracking";
-            // 
-            // lnkConfigureProjects
-            // 
-            this.lnkConfigureProjects.AutoSize = true;
-            this.lnkConfigureProjects.LinkColor = System.Drawing.Color.DodgerBlue;
-            this.lnkConfigureProjects.Location = new System.Drawing.Point(13, 235);
-            this.lnkConfigureProjects.Name = "lnkConfigureProjects";
-            this.lnkConfigureProjects.Size = new System.Drawing.Size(52, 13);
-            this.lnkConfigureProjects.TabIndex = 5;
-            this.lnkConfigureProjects.TabStop = true;
-            this.lnkConfigureProjects.Text = "Configure";
-            this.lnkConfigureProjects.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lnkConfigureProjects_LinkClicked);
             // 
             // lnkToggleConsole
             // 
@@ -114,21 +103,36 @@
             this.richTextBox1.Visible = false;
             this.richTextBox1.WordWrap = false;
             // 
+            // picMenu
+            // 
+            this.picMenu.Image = global::AutoToggl.Properties.Resources.menu;
+            this.picMenu.Location = new System.Drawing.Point(12, 12);
+            this.picMenu.Name = "picMenu";
+            this.picMenu.Size = new System.Drawing.Size(32, 32);
+            this.picMenu.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.picMenu.TabIndex = 8;
+            this.picMenu.TabStop = false;
+            this.picMenu.Click += new System.EventHandler(this.picMenu_Click);
+            this.picMenu.MouseEnter += new System.EventHandler(this.picMenu_MouseEnter);
+            this.picMenu.MouseLeave += new System.EventHandler(this.picMenu_MouseLeave);
+            this.picMenu.MouseHover += new System.EventHandler(this.picMenu_MouseHover);
+            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.ClientSize = new System.Drawing.Size(801, 671);
+            this.Controls.Add(this.picMenu);
             this.Controls.Add(this.richTextBox1);
             this.Controls.Add(this.lnkToggleConsole);
-            this.Controls.Add(this.lnkConfigureProjects);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Name = "Main";
             this.Text = "AutoToggl";
             this.Shown += new System.EventHandler(this.Main_Shown);
+            ((System.ComponentModel.ISupportInitialize)(this.picMenu)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -138,9 +142,9 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.LinkLabel lnkConfigureProjects;
         private System.Windows.Forms.LinkLabel lnkToggleConsole;
         private System.Windows.Forms.RichTextBox richTextBox1;
+        private System.Windows.Forms.PictureBox picMenu;
     }
 }
 
