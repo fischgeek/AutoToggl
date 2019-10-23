@@ -59,6 +59,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.txtKeywordList = new System.Windows.Forms.TextBox();
             this.lblTogglProjects = new System.Windows.Forms.Label();
+            this.lblMessages = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -220,7 +221,7 @@
             this.btnSave.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnSave.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSave.ForeColor = System.Drawing.Color.Black;
-            this.btnSave.Location = new System.Drawing.Point(949, 461);
+            this.btnSave.Location = new System.Drawing.Point(949, 494);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(79, 30);
             this.btnSave.TabIndex = 20;
@@ -233,7 +234,7 @@
             this.btnCancel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnCancel.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCancel.ForeColor = System.Drawing.Color.Black;
-            this.btnCancel.Location = new System.Drawing.Point(864, 461);
+            this.btnCancel.Location = new System.Drawing.Point(864, 494);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(79, 30);
             this.btnCancel.TabIndex = 21;
@@ -306,7 +307,7 @@
             this.groupBox4.ForeColor = System.Drawing.Color.DodgerBlue;
             this.groupBox4.Location = new System.Drawing.Point(349, 12);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(676, 345);
+            this.groupBox4.Size = new System.Drawing.Size(676, 369);
             this.groupBox4.TabIndex = 25;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Keyword Settings";
@@ -365,6 +366,7 @@
             this.lstProjects.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lstProjects.ForeColor = System.Drawing.Color.White;
             this.lstProjects.FormattingEnabled = true;
+            this.lstProjects.IntegralHeight = false;
             this.lstProjects.ItemHeight = 18;
             this.lstProjects.Items.AddRange(new object[] {
             "project a",
@@ -373,7 +375,7 @@
             "project d"});
             this.lstProjects.Location = new System.Drawing.Point(10, 56);
             this.lstProjects.Name = "lstProjects";
-            this.lstProjects.Size = new System.Drawing.Size(249, 274);
+            this.lstProjects.Size = new System.Drawing.Size(249, 301);
             this.lstProjects.TabIndex = 37;
             // 
             // lnkSaveEdits
@@ -396,10 +398,11 @@
             this.lstKeywords.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lstKeywords.ForeColor = System.Drawing.Color.White;
             this.lstKeywords.FormattingEnabled = true;
+            this.lstKeywords.IntegralHeight = false;
             this.lstKeywords.ItemHeight = 18;
             this.lstKeywords.Location = new System.Drawing.Point(327, 59);
             this.lstKeywords.Name = "lstKeywords";
-            this.lstKeywords.Size = new System.Drawing.Size(269, 274);
+            this.lstKeywords.Size = new System.Drawing.Size(269, 298);
             this.lstKeywords.TabIndex = 35;
             // 
             // lnkCancelEdit
@@ -447,7 +450,7 @@
             this.txtKeywordList.Location = new System.Drawing.Point(328, 59);
             this.txtKeywordList.Multiline = true;
             this.txtKeywordList.Name = "txtKeywordList";
-            this.txtKeywordList.Size = new System.Drawing.Size(268, 274);
+            this.txtKeywordList.Size = new System.Drawing.Size(268, 298);
             this.txtKeywordList.TabIndex = 31;
             // 
             // lblTogglProjects
@@ -461,12 +464,24 @@
             this.lblTogglProjects.TabIndex = 30;
             this.lblTogglProjects.Text = "Toggl Projects";
             // 
+            // lblMessages
+            // 
+            this.lblMessages.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblMessages.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblMessages.ForeColor = System.Drawing.Color.White;
+            this.lblMessages.Location = new System.Drawing.Point(13, 494);
+            this.lblMessages.Name = "lblMessages";
+            this.lblMessages.Size = new System.Drawing.Size(845, 30);
+            this.lblMessages.TabIndex = 13;
+            // 
             // Menu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.ClientSize = new System.Drawing.Size(1039, 498);
+            this.ClientSize = new System.Drawing.Size(1039, 531);
+            this.Controls.Add(this.lblMessages);
             this.Controls.Add(this.groupBox4);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
@@ -520,5 +535,6 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox txtKeywordList;
         private System.Windows.Forms.Label lblTogglProjects;
+        private System.Windows.Forms.Label lblMessages;
     }
 }

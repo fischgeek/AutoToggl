@@ -2,12 +2,14 @@
 using System;
 using System.Windows.Forms;
 using SharedLibrary;
+using TogglConnect;
 
 namespace AutoToggl
 {
     public partial class Menu : Form
     {
         DataHandler dh = DataHandler.GetInstance();
+        TogglBase tb = TogglBase.GetInstance();
 
         public Menu()
         {
@@ -21,6 +23,13 @@ namespace AutoToggl
             txtTogglPassword.Text = settings.TogglPassword;
             txtTogglAPIKey.Text = settings.TogglAPIKey;
             txtTogglWorkspaceId.Text = settings.TogglWorkspaceId.ToString();
+            tb.Init(settings.TogglAPIKey, settings.TogglWorkspaceId);
+            var me = tb.GetMe();
+            if (me == null) {
+                lblMessages.Text = "Toggl authentication was unsuccessful. Please check the Toggl Authentication section.";
+            } else {
+                lblMessages.Text = "Toggl authentication was successful. Welcome.";
+            }
         }
 
         private void btnCancel_Click(object sender, EventArgs e)
