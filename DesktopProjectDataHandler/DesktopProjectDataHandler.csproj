@@ -45,9 +45,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DataHandler.cs" />
+    <Compile Include="ProjectKeyword.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Settings.cs" />
     <Compile Include="StoredData.cs" />
+    <Compile Include="TrackedProject.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

@@ -27,6 +27,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.cbxStartWithWindows = new System.Windows.Forms.CheckBox();
             this.cbxShowOnStart = new System.Windows.Forms.CheckBox();
             this.cbxCloseToTray = new System.Windows.Forms.CheckBox();
@@ -45,13 +46,20 @@
             this.btnCancel = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.txtLogHistory = new System.Windows.Forms.TextBox();
+            this.label9 = new System.Windows.Forms.Label();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.btnAddProject = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
+            this.ddlTogglProjects = new System.Windows.Forms.ComboBox();
+            this.bindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.button3 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
             this.btnDownProjectListItem = new System.Windows.Forms.Button();
             this.btnUpProjectListItem = new System.Windows.Forms.Button();
             this.lstProjects = new System.Windows.Forms.ListBox();
+            this.trackedProjectBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.lnkSaveEdits = new System.Windows.Forms.LinkLabel();
             this.lstKeywords = new System.Windows.Forms.ListBox();
             this.lnkCancelEdit = new System.Windows.Forms.LinkLabel();
@@ -59,11 +67,15 @@
             this.label2 = new System.Windows.Forms.Label();
             this.txtKeywordList = new System.Windows.Forms.TextBox();
             this.lblTogglProjects = new System.Windows.Forms.Label();
+            this.projectBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.lblMessages = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).BeginInit();
             this.groupBox4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.trackedProjectBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.projectBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // cbxStartWithWindows
@@ -221,7 +233,7 @@
             this.btnSave.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnSave.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSave.ForeColor = System.Drawing.Color.Black;
-            this.btnSave.Location = new System.Drawing.Point(949, 494);
+            this.btnSave.Location = new System.Drawing.Point(949, 588);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(79, 30);
             this.btnSave.TabIndex = 20;
@@ -234,7 +246,7 @@
             this.btnCancel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnCancel.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCancel.ForeColor = System.Drawing.Color.Black;
-            this.btnCancel.Location = new System.Drawing.Point(864, 494);
+            this.btnCancel.Location = new System.Drawing.Point(864, 588);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(79, 30);
             this.btnCancel.TabIndex = 21;
@@ -253,7 +265,7 @@
             this.groupBox1.Controls.Add(this.label7);
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.ForeColor = System.Drawing.Color.DodgerBlue;
-            this.groupBox1.Location = new System.Drawing.Point(16, 168);
+            this.groupBox1.Location = new System.Drawing.Point(16, 223);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(312, 213);
             this.groupBox1.TabIndex = 22;
@@ -262,6 +274,8 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.txtLogHistory);
+            this.groupBox2.Controls.Add(this.label9);
             this.groupBox2.Controls.Add(this.cbxStartWithWindows);
             this.groupBox2.Controls.Add(this.cbxShowOnStart);
             this.groupBox2.Controls.Add(this.cbxCloseToTray);
@@ -271,23 +285,88 @@
             this.groupBox2.ForeColor = System.Drawing.Color.DodgerBlue;
             this.groupBox2.Location = new System.Drawing.Point(16, 12);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(312, 150);
+            this.groupBox2.Size = new System.Drawing.Size(312, 205);
             this.groupBox2.TabIndex = 23;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Settings";
             // 
+            // txtLogHistory
+            // 
+            this.txtLogHistory.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtLogHistory.Location = new System.Drawing.Point(210, 148);
+            this.txtLogHistory.Name = "txtLogHistory";
+            this.txtLogHistory.Size = new System.Drawing.Size(87, 24);
+            this.txtLogHistory.TabIndex = 16;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.ForeColor = System.Drawing.Color.White;
+            this.label9.Location = new System.Drawing.Point(10, 151);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(189, 18);
+            this.label9.TabIndex = 15;
+            this.label9.Text = "Number of log lines to keep";
+            // 
             // groupBox3
             // 
+            this.groupBox3.Controls.Add(this.btnAddProject);
+            this.groupBox3.Controls.Add(this.label1);
+            this.groupBox3.Controls.Add(this.ddlTogglProjects);
             this.groupBox3.Controls.Add(this.label4);
             this.groupBox3.Controls.Add(this.txtTogglWorkspaceId);
             this.groupBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox3.ForeColor = System.Drawing.Color.DodgerBlue;
-            this.groupBox3.Location = new System.Drawing.Point(16, 387);
+            this.groupBox3.Location = new System.Drawing.Point(16, 442);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(312, 94);
+            this.groupBox3.Size = new System.Drawing.Size(312, 143);
             this.groupBox3.TabIndex = 24;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Toggl Settings";
+            // 
+            // btnAddProject
+            // 
+            this.btnAddProject.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAddProject.ForeColor = System.Drawing.Color.Black;
+            this.btnAddProject.Location = new System.Drawing.Point(220, 101);
+            this.btnAddProject.Name = "btnAddProject";
+            this.btnAddProject.Size = new System.Drawing.Size(75, 29);
+            this.btnAddProject.TabIndex = 15;
+            this.btnAddProject.Text = "Add";
+            this.btnAddProject.UseVisualStyleBackColor = true;
+            this.btnAddProject.Click += new System.EventHandler(this.btnAddProject_Click);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.White;
+            this.label1.Location = new System.Drawing.Point(6, 82);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(63, 18);
+            this.label1.TabIndex = 14;
+            this.label1.Text = "Projects";
+            // 
+            // ddlTogglProjects
+            // 
+            this.ddlTogglProjects.DataSource = this.bindingSource1;
+            this.ddlTogglProjects.DisplayMember = "name";
+            this.ddlTogglProjects.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.ddlTogglProjects.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ddlTogglProjects.FormattingEnabled = true;
+            this.ddlTogglProjects.IntegralHeight = false;
+            this.ddlTogglProjects.ItemHeight = 18;
+            this.ddlTogglProjects.Location = new System.Drawing.Point(7, 103);
+            this.ddlTogglProjects.MaxDropDownItems = 88;
+            this.ddlTogglProjects.Name = "ddlTogglProjects";
+            this.ddlTogglProjects.Size = new System.Drawing.Size(207, 26);
+            this.ddlTogglProjects.TabIndex = 13;
+            this.ddlTogglProjects.ValueMember = "name";
+            // 
+            // bindingSource1
+            // 
+            this.bindingSource1.DataSource = typeof(TogglConnect.Project);
             // 
             // groupBox4
             // 
@@ -363,20 +442,22 @@
             // lstProjects
             // 
             this.lstProjects.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.lstProjects.DataSource = this.trackedProjectBindingSource;
+            this.lstProjects.DisplayMember = "name";
             this.lstProjects.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lstProjects.ForeColor = System.Drawing.Color.White;
             this.lstProjects.FormattingEnabled = true;
             this.lstProjects.IntegralHeight = false;
             this.lstProjects.ItemHeight = 18;
-            this.lstProjects.Items.AddRange(new object[] {
-            "project a",
-            "project b",
-            "project c",
-            "project d"});
             this.lstProjects.Location = new System.Drawing.Point(10, 56);
             this.lstProjects.Name = "lstProjects";
             this.lstProjects.Size = new System.Drawing.Size(249, 301);
             this.lstProjects.TabIndex = 37;
+            this.lstProjects.ValueMember = "Name";
+            // 
+            // trackedProjectBindingSource
+            // 
+            this.trackedProjectBindingSource.DataSource = typeof(DesktopProjectDataHandler.TrackedProject);
             // 
             // lnkSaveEdits
             // 
@@ -464,13 +545,17 @@
             this.lblTogglProjects.TabIndex = 30;
             this.lblTogglProjects.Text = "Toggl Projects";
             // 
+            // projectBindingSource
+            // 
+            this.projectBindingSource.DataSource = typeof(TogglConnect.Project);
+            // 
             // lblMessages
             // 
             this.lblMessages.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.lblMessages.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblMessages.ForeColor = System.Drawing.Color.White;
-            this.lblMessages.Location = new System.Drawing.Point(13, 494);
+            this.lblMessages.Location = new System.Drawing.Point(13, 588);
             this.lblMessages.Name = "lblMessages";
             this.lblMessages.Size = new System.Drawing.Size(845, 30);
             this.lblMessages.TabIndex = 13;
@@ -480,7 +565,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.ClientSize = new System.Drawing.Size(1039, 531);
+            this.ClientSize = new System.Drawing.Size(1039, 625);
             this.Controls.Add(this.lblMessages);
             this.Controls.Add(this.groupBox4);
             this.Controls.Add(this.groupBox3);
@@ -496,8 +581,11 @@
             this.groupBox2.PerformLayout();
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).EndInit();
             this.groupBox4.ResumeLayout(false);
             this.groupBox4.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.trackedProjectBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.projectBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -536,5 +624,13 @@
         private System.Windows.Forms.TextBox txtKeywordList;
         private System.Windows.Forms.Label lblTogglProjects;
         private System.Windows.Forms.Label lblMessages;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.ComboBox ddlTogglProjects;
+        private System.Windows.Forms.Button btnAddProject;
+        private System.Windows.Forms.BindingSource bindingSource1;
+        private System.Windows.Forms.BindingSource projectBindingSource;
+        private System.Windows.Forms.BindingSource trackedProjectBindingSource;
+        private System.Windows.Forms.TextBox txtLogHistory;
+        private System.Windows.Forms.Label label9;
     }
 }

@@ -3,6 +3,7 @@ using System;
 using System.Windows.Forms;
 using SharedLibrary;
 using TogglConnect;
+using System.Collections.Generic;
 
 namespace AutoToggl
 {
@@ -10,6 +11,8 @@ namespace AutoToggl
     {
         DataHandler dh = DataHandler.GetInstance();
         TogglBase tb = TogglBase.GetInstance();
+        List<Project> projects = new List<Project>();
+        Settings settings = new Settings();
 
         public Menu()
         {
@@ -23,12 +26,15 @@ namespace AutoToggl
             txtTogglPassword.Text = settings.TogglPassword;
             txtTogglAPIKey.Text = settings.TogglAPIKey;
             txtTogglWorkspaceId.Text = settings.TogglWorkspaceId.ToString();
+            lstProjects.DataSource = settings.TrackedProjects;
             tb.Init(settings.TogglAPIKey, settings.TogglWorkspaceId);
             var me = tb.GetMe();
             if (me == null) {
                 lblMessages.Text = "Toggl authentication was unsuccessful. Please check the Toggl Authentication section.";
             } else {
                 lblMessages.Text = "Toggl authentication was successful. Welcome.";
+                projects = tb.GetProjects();
+                ddlTogglProjects.DataSource = projects;
             }
         }
 
@@ -39,7 +45,6 @@ namespace AutoToggl
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            Settings settings = new Settings();
             settings.StartWithWindows = cbxStartWithWindows.Checked;
             settings.ShowOnStart =      cbxShowOnStart.Checked;
             settings.CloseToTray =      cbxCloseToTray.Checked;
@@ -49,6 +54,19 @@ namespace AutoToggl
             settings.TogglAPIKey =      txtTogglAPIKey.Text;
             settings.TogglWorkspaceId = txtTogglWorkspaceId.Text.JFStringToInt();
             dh.UpdateSettings(settings);
+        }
+
+        private void btnAddProject_Click(object sender, EventArgs e)
+        {
+            if (settings.TrackedProjects == null) {
+                settings.TrackedProjects = new List<TrackedProject>();
+            }
+            settings.TrackedProjects.Add(new TrackedProject() {
+                Name = (ddlTogglProjects.SelectedItem as TrackedProject).Name
+                , Position = 0
+            });
+            dh.UpdateSettings(settings);
+
         }
     }
 }

@@ -37,7 +37,7 @@ namespace AutoToggl
             if (win == "AutoToggl") {
                 clr = Color.Green;
             }
-            richTextBox1.AppendTimeStampedLine(win, clr);
+            txtConsole.AppendTimeStampedLine(win, clr);
         }
 
         private void Main_Shown(object sender, EventArgs e)
@@ -47,8 +47,8 @@ namespace AutoToggl
 
         private void lnkToggleConsole_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            richTextBox1.Visible = !richTextBox1.Visible;
-            if (richTextBox1.Visible) {
+            txtConsole.Visible = !txtConsole.Visible;
+            if (txtConsole.Visible) {
                 ShowConsole();
             } else {
                 HideConsole();
@@ -57,19 +57,19 @@ namespace AutoToggl
 
         private void ShowConsole()
         {
-            richTextBox1.Visible = true;
+            txtConsole.Visible = true;
             lnkToggleConsole.Text = "Hide Console";
             this.Height = 710;
-            richTextBox1.Height = 400;
+            txtConsole.Height = 400;
             this.Refresh();
         }
 
         private void HideConsole()
         {
-            richTextBox1.Visible = false;
+            txtConsole.Visible = false;
             lnkToggleConsole.Text = "Show Console";
             this.Height = 300;
-            richTextBox1.Height = 400;
+            txtConsole.Height = 400;
             this.Refresh();
         }
 
@@ -92,6 +92,15 @@ namespace AutoToggl
             FormProvider.Menu.Show();
             //ConfigureProjects cp = new ConfigureProjects();
             //cp.Show();
+        }
+
+        private void txtConsole_TextChanged(object sender, EventArgs e)
+        {
+            if (txtConsole.Lines.Count() >= 100) {
+                txtConsole.SelectionStart = txtConsole.GetFirstCharIndexFromLine(0);
+                txtConsole.SelectionLength = this.txtConsole.Lines[0].Length + 1;
+                this.txtConsole.SelectedText = String.Empty;
+            }
         }
     }
 

@@ -31,7 +31,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.lnkToggleConsole = new System.Windows.Forms.LinkLabel();
-            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
+            this.txtConsole = new System.Windows.Forms.RichTextBox();
             this.picMenu = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.picMenu)).BeginInit();
             this.SuspendLayout();
@@ -87,21 +87,22 @@
             this.lnkToggleConsole.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.lnkToggleConsole.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lnkToggleConsole_LinkClicked);
             // 
-            // richTextBox1
+            // txtConsole
             // 
-            this.richTextBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.txtConsole.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.richTextBox1.BackColor = System.Drawing.Color.Black;
-            this.richTextBox1.Font = new System.Drawing.Font("Consolas", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.richTextBox1.ForeColor = System.Drawing.Color.White;
-            this.richTextBox1.Location = new System.Drawing.Point(13, 257);
-            this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.Size = new System.Drawing.Size(776, 400);
-            this.richTextBox1.TabIndex = 7;
-            this.richTextBox1.Text = "";
-            this.richTextBox1.Visible = false;
-            this.richTextBox1.WordWrap = false;
+            this.txtConsole.BackColor = System.Drawing.Color.Black;
+            this.txtConsole.Font = new System.Drawing.Font("Consolas", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtConsole.ForeColor = System.Drawing.Color.White;
+            this.txtConsole.Location = new System.Drawing.Point(13, 257);
+            this.txtConsole.Name = "txtConsole";
+            this.txtConsole.Size = new System.Drawing.Size(776, 400);
+            this.txtConsole.TabIndex = 7;
+            this.txtConsole.Text = "";
+            this.txtConsole.Visible = false;
+            this.txtConsole.WordWrap = false;
+            this.txtConsole.TextChanged += new System.EventHandler(this.txtConsole_TextChanged);
             // 
             // picMenu
             // 
@@ -124,7 +125,7 @@
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.ClientSize = new System.Drawing.Size(801, 671);
             this.Controls.Add(this.picMenu);
-            this.Controls.Add(this.richTextBox1);
+            this.Controls.Add(this.txtConsole);
             this.Controls.Add(this.lnkToggleConsole);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
@@ -143,7 +144,7 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.LinkLabel lnkToggleConsole;
-        private System.Windows.Forms.RichTextBox richTextBox1;
+        private System.Windows.Forms.RichTextBox txtConsole;
         private System.Windows.Forms.PictureBox picMenu;
     }
 }
