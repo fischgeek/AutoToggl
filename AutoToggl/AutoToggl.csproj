@@ -53,7 +53,7 @@
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
     <Reference Include="TogglConnect">
-      <HintPath>..\TogglConnect\TogglConnect\bin\Release\TogglConnect.dll</HintPath>
+      <HintPath>Lib\TogglConnect.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
