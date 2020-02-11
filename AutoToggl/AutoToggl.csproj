@@ -112,15 +112,14 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Resources\menu.png" />
+    <Content Include="Resources\menu_hover.png" />
+  </ItemGroup>
+  <ItemGroup>
     <ProjectReference Include="..\DesktopProjectDataHandler\DesktopProjectDataHandler.csproj">
       <Project>{e488dec9-bf37-4d60-8910-4a0d6fca37d5}</Project>
       <Name>DesktopProjectDataHandler</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup>
-    <Content Include="Resources\menu.png" />
-    <Content Include="Resources\menu_hover.png" />
-  </ItemGroup>
-  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

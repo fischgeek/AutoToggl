@@ -3,13 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using TogglConnect;
 
 namespace DesktopProjectDataHandler
 {
-    public class TrackedProject
+    public class TrackedProject : Project
     {
-        public string Name { get; set; }
-        public int Position { get; set; }
-        public List<ProjectKeyword> ProjectKeywords { get; set; }
+        public int position { get; set; }
+        public string[] projectKeywords { get; set; }
     }
 }

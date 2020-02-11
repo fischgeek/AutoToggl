@@ -6,9 +6,10 @@ using System.Threading.Tasks;
 
 namespace DesktopProjectDataHandler
 {
-    public class ProjectKeyword
+    public class TrackedProject
     {
-        public string Keyword { get; set; }
+        public string Name { get; set; }
         public int Position { get; set; }
+        public List<ProjectKeyword> ProjectKeywords { get; set; }
     }
 }

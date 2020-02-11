@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 
 namespace DesktopProjectDataHandler
 {
@@ -70,6 +71,14 @@ namespace DesktopProjectDataHandler
         public void UpdateSettings(Settings settingsFromDialog)
         {
             storedData.Settings = settingsFromDialog;
+            SaveDataFile();
+        }
+
+        public List<TrackedProject> GetTrackedProjects() => storedData.TrackedProjects.OrderBy(x => x.position).ToList();
+
+        public void SaveTrackedProjects(List<TrackedProject> trackedProjects)
+        {
+            storedData.TrackedProjects = trackedProjects;
             SaveDataFile();
         }
     }

@@ -27,8 +27,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
+            this.lblTimer = new System.Windows.Forms.Label();
+            this.lblTrackingProjectTitle = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.lnkToggleConsole = new System.Windows.Forms.LinkLabel();
             this.txtConsole = new System.Windows.Forms.RichTextBox();
@@ -36,32 +36,31 @@
             ((System.ComponentModel.ISupportInitialize)(this.picMenu)).BeginInit();
             this.SuspendLayout();
             // 
-            // label1
+            // lblTimer
             // 
-            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Segoe UI", 72F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.DodgerBlue;
-            this.label1.Location = new System.Drawing.Point(612, -17);
-            this.label1.Margin = new System.Windows.Forms.Padding(0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(211, 128);
-            this.label1.TabIndex = 2;
-            this.label1.Text = "143";
-            this.label1.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.lblTimer.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblTimer.Font = new System.Drawing.Font("Segoe UI", 72F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTimer.ForeColor = System.Drawing.Color.DodgerBlue;
+            this.lblTimer.Location = new System.Drawing.Point(612, -17);
+            this.lblTimer.Margin = new System.Windows.Forms.Padding(0);
+            this.lblTimer.Name = "lblTimer";
+            this.lblTimer.Size = new System.Drawing.Size(211, 128);
+            this.lblTimer.TabIndex = 2;
+            this.lblTimer.Text = "143";
+            this.lblTimer.TextAlign = System.Drawing.ContentAlignment.TopRight;
             // 
-            // label2
+            // lblTrackingProjectTitle
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.Color.DodgerBlue;
-            this.label2.Location = new System.Drawing.Point(9, 74);
-            this.label2.Margin = new System.Windows.Forms.Padding(0);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(205, 37);
-            this.label2.TabIndex = 3;
-            this.label2.Text = "PROJECT NAME";
-            this.label2.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.lblTrackingProjectTitle.AutoSize = true;
+            this.lblTrackingProjectTitle.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTrackingProjectTitle.ForeColor = System.Drawing.Color.DodgerBlue;
+            this.lblTrackingProjectTitle.Location = new System.Drawing.Point(9, 74);
+            this.lblTrackingProjectTitle.Margin = new System.Windows.Forms.Padding(0);
+            this.lblTrackingProjectTitle.Name = "lblTrackingProjectTitle";
+            this.lblTrackingProjectTitle.Size = new System.Drawing.Size(205, 37);
+            this.lblTrackingProjectTitle.TabIndex = 3;
+            this.lblTrackingProjectTitle.Text = "PROJECT NAME";
+            this.lblTrackingProjectTitle.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // label3
             // 
@@ -128,8 +127,8 @@
             this.Controls.Add(this.txtConsole);
             this.Controls.Add(this.lnkToggleConsole);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.lblTrackingProjectTitle);
+            this.Controls.Add(this.lblTimer);
             this.Name = "Main";
             this.Text = "AutoToggl";
             this.Shown += new System.EventHandler(this.Main_Shown);
@@ -140,8 +139,8 @@
         }
 
         #endregion
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label lblTimer;
+        private System.Windows.Forms.Label lblTrackingProjectTitle;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.LinkLabel lnkToggleConsole;
         private System.Windows.Forms.RichTextBox txtConsole;

@@ -9,6 +9,7 @@ namespace DesktopProjectDataHandler
     public class StoredData
     {
         public Settings Settings = new Settings();
+        public List<TrackedProject> TrackedProjects = new List<TrackedProject>();
         private static StoredData instance = new StoredData();
 
         private StoredData() { }

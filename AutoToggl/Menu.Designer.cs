@@ -52,7 +52,7 @@
             this.btnAddProject = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.ddlTogglProjects = new System.Windows.Forms.ComboBox();
-            this.bindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.togglProjectsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.button3 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
@@ -61,7 +61,6 @@
             this.lstProjects = new System.Windows.Forms.ListBox();
             this.trackedProjectBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.lnkSaveEdits = new System.Windows.Forms.LinkLabel();
-            this.lstKeywords = new System.Windows.Forms.ListBox();
             this.lnkCancelEdit = new System.Windows.Forms.LinkLabel();
             this.lnkEditKeywords = new System.Windows.Forms.LinkLabel();
             this.label2 = new System.Windows.Forms.Label();
@@ -69,13 +68,15 @@
             this.lblTogglProjects = new System.Windows.Forms.Label();
             this.projectBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.lblMessages = new System.Windows.Forms.Label();
+            this.projectKeywordsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.togglProjectsBindingSource)).BeginInit();
             this.groupBox4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.trackedProjectBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.projectBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.projectKeywordsBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // cbxStartWithWindows
@@ -350,7 +351,7 @@
             // 
             // ddlTogglProjects
             // 
-            this.ddlTogglProjects.DataSource = this.bindingSource1;
+            this.ddlTogglProjects.DataSource = this.togglProjectsBindingSource;
             this.ddlTogglProjects.DisplayMember = "name";
             this.ddlTogglProjects.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.ddlTogglProjects.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -364,9 +365,9 @@
             this.ddlTogglProjects.TabIndex = 13;
             this.ddlTogglProjects.ValueMember = "name";
             // 
-            // bindingSource1
+            // togglProjectsBindingSource
             // 
-            this.bindingSource1.DataSource = typeof(TogglConnect.Project);
+            this.togglProjectsBindingSource.DataSource = typeof(TogglConnect.Project);
             // 
             // groupBox4
             // 
@@ -376,7 +377,6 @@
             this.groupBox4.Controls.Add(this.btnUpProjectListItem);
             this.groupBox4.Controls.Add(this.lstProjects);
             this.groupBox4.Controls.Add(this.lnkSaveEdits);
-            this.groupBox4.Controls.Add(this.lstKeywords);
             this.groupBox4.Controls.Add(this.lnkCancelEdit);
             this.groupBox4.Controls.Add(this.lnkEditKeywords);
             this.groupBox4.Controls.Add(this.label2);
@@ -443,7 +443,7 @@
             // 
             this.lstProjects.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.lstProjects.DataSource = this.trackedProjectBindingSource;
-            this.lstProjects.DisplayMember = "name";
+            this.lstProjects.DisplayMember = "Name";
             this.lstProjects.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lstProjects.ForeColor = System.Drawing.Color.White;
             this.lstProjects.FormattingEnabled = true;
@@ -454,6 +454,7 @@
             this.lstProjects.Size = new System.Drawing.Size(249, 301);
             this.lstProjects.TabIndex = 37;
             this.lstProjects.ValueMember = "Name";
+            this.lstProjects.SelectedIndexChanged += new System.EventHandler(this.lstProjects_SelectedIndexChanged);
             // 
             // trackedProjectBindingSource
             // 
@@ -470,21 +471,8 @@
             this.lnkSaveEdits.TabIndex = 36;
             this.lnkSaveEdits.TabStop = true;
             this.lnkSaveEdits.Text = "Save";
-            // 
-            // lstKeywords
-            // 
-            this.lstKeywords.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.lstKeywords.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.lstKeywords.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lstKeywords.ForeColor = System.Drawing.Color.White;
-            this.lstKeywords.FormattingEnabled = true;
-            this.lstKeywords.IntegralHeight = false;
-            this.lstKeywords.ItemHeight = 18;
-            this.lstKeywords.Location = new System.Drawing.Point(327, 59);
-            this.lstKeywords.Name = "lstKeywords";
-            this.lstKeywords.Size = new System.Drawing.Size(269, 298);
-            this.lstKeywords.TabIndex = 35;
+            this.lnkSaveEdits.Visible = false;
+            this.lnkSaveEdits.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lnkSaveEdits_LinkClicked);
             // 
             // lnkCancelEdit
             // 
@@ -497,6 +485,8 @@
             this.lnkCancelEdit.TabIndex = 34;
             this.lnkCancelEdit.TabStop = true;
             this.lnkCancelEdit.Text = "Cancel";
+            this.lnkCancelEdit.Visible = false;
+            this.lnkCancelEdit.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lnkCancelEdit_LinkClicked);
             // 
             // lnkEditKeywords
             // 
@@ -509,6 +499,7 @@
             this.lnkEditKeywords.TabIndex = 33;
             this.lnkEditKeywords.TabStop = true;
             this.lnkEditKeywords.Text = "Edit";
+            this.lnkEditKeywords.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lnkEditKeywords_LinkClicked);
             // 
             // label2
             // 
@@ -560,6 +551,11 @@
             this.lblMessages.Size = new System.Drawing.Size(845, 30);
             this.lblMessages.TabIndex = 13;
             // 
+            // projectKeywordsBindingSource
+            // 
+            this.projectKeywordsBindingSource.DataMember = "ProjectKeywords";
+            this.projectKeywordsBindingSource.DataSource = this.trackedProjectBindingSource;
+            // 
             // Menu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -581,11 +577,12 @@
             this.groupBox2.PerformLayout();
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.togglProjectsBindingSource)).EndInit();
             this.groupBox4.ResumeLayout(false);
             this.groupBox4.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.trackedProjectBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.projectBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.projectKeywordsBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -617,7 +614,6 @@
         private System.Windows.Forms.Button btnUpProjectListItem;
         private System.Windows.Forms.ListBox lstProjects;
         private System.Windows.Forms.LinkLabel lnkSaveEdits;
-        private System.Windows.Forms.ListBox lstKeywords;
         private System.Windows.Forms.LinkLabel lnkCancelEdit;
         private System.Windows.Forms.LinkLabel lnkEditKeywords;
         private System.Windows.Forms.Label label2;
@@ -627,10 +623,11 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ComboBox ddlTogglProjects;
         private System.Windows.Forms.Button btnAddProject;
-        private System.Windows.Forms.BindingSource bindingSource1;
+        private System.Windows.Forms.BindingSource togglProjectsBindingSource;
         private System.Windows.Forms.BindingSource projectBindingSource;
         private System.Windows.Forms.BindingSource trackedProjectBindingSource;
         private System.Windows.Forms.TextBox txtLogHistory;
         private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.BindingSource projectKeywordsBindingSource;
     }
 }

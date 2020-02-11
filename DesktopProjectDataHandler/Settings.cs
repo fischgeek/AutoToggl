@@ -16,6 +16,6 @@ namespace DesktopProjectDataHandler
         public string TogglPassword { get; set; }
         public string TogglAPIKey { get; set; }
         public int TogglWorkspaceId { get; set; }
-        public List<TrackedProject> TrackedProjects { get; set; }
+        //public List<TrackedProject> TrackedProjects { get; set; }
     }
 }
