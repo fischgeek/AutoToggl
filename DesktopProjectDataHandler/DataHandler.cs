@@ -81,5 +81,7 @@ namespace DesktopProjectDataHandler
             storedData.TrackedProjects = trackedProjects;
             SaveDataFile();
         }
+
+        public TrackedProject GetTrackedProjectById(int pid) => storedData.TrackedProjects.Where(x => x.id == pid).FirstOrDefault();
     }
 }

@@ -25,12 +25,16 @@ namespace AutoToggl
         {
             InitializeComponent();
             settings = dh.GetSettings();
+            
             timer.Interval = settings.CheckInterval;
-            secondTimer.Interval = 1000;
             timer.Tick += Timer_Tick;
+
+            secondTimer.Interval = 1000;
             secondTimer.Tick += SecondTimer_Tick;
+            
             HideConsole();
             tb.Init(settings.TogglAPIKey, settings.TogglWorkspaceId);
+            CheckForARunningTimer();
         }
 
         private void SecondTimer_Tick(object sender, EventArgs e)
@@ -80,6 +84,16 @@ namespace AutoToggl
             txtConsole.AppendTimeStampedLine(win, clr);
         }
 
+        private void CheckForARunningTimer()
+        {
+            var te = tb.GetRunningTimer();
+            if (te != null) {
+                //txtConsole.AppendTimeStampedLine($"Current running timer is {te.description}. Duration {tb.CurrentTimerDuration()}");
+                aTimerIsRunning = true;
+                StartTimer(dh.GetTrackedProjectById(tb.GetProject(te.pid).id), te.description);
+            }
+        }
+
         private void StartTimer(TrackedProject project, string description = "")
         {
             var ct = tb.GetRunningTimer();
@@ -108,9 +122,19 @@ namespace AutoToggl
 
         }
 
-        private static bool CurrentActiveIsValid(string currentActive) => lastActive != currentActive && currentActive.JFIsNotNull() && !IsNeutralWindow(currentActive);
+        private bool CurrentActiveIsValid(string currentActive) => lastActive != currentActive && currentActive.JFIsNotNull() && !IsNeutralWindow(currentActive);
 
-        public static bool IsNeutralWindow(string title) => false; // Regex.IsMatch(title, "", RegexOptions.IgnoreCase);
+        public bool IsNeutralWindow(string title)
+        {
+            var foundMatch = false;
+            foreach (var kw in settings.NeutralWindows) {
+                if (Regex.IsMatch(title, kw, RegexOptions.IgnoreCase) == true) {
+                    foundMatch = true;
+                    break;
+                }
+            }
+            return foundMatch;
+        }
 
         private static bool KeywordExistsInActiveWindowTitle(TrackedProject project, string currentActive)
         {
