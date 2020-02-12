@@ -1,6 +1,6 @@
 ﻿namespace AutoToggl
 {
-    partial class Menu
+    partial class Settings
     {
         /// <summary>
         /// Required designer variable.
@@ -45,6 +45,8 @@
             this.btnSave = new System.Windows.Forms.Button();
             this.btnCancel = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.lblConnectionStatus = new System.Windows.Forms.Label();
+            this.lnkTestAuth = new System.Windows.Forms.LinkLabel();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.txtLogHistory = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
@@ -54,8 +56,6 @@
             this.ddlTogglProjects = new System.Windows.Forms.ComboBox();
             this.togglProjectsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.groupBox4 = new System.Windows.Forms.GroupBox();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
             this.btnDownProjectListItem = new System.Windows.Forms.Button();
             this.btnUpProjectListItem = new System.Windows.Forms.Button();
             this.lstProjects = new System.Windows.Forms.ListBox();
@@ -69,6 +69,10 @@
             this.projectBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.lblMessages = new System.Windows.Forms.Label();
             this.projectKeywordsBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.groupBox5 = new System.Windows.Forms.GroupBox();
+            this.cbxStopOnNeutral = new System.Windows.Forms.CheckBox();
+            this.label11 = new System.Windows.Forms.Label();
+            this.txtNeutralWindows = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -77,6 +81,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.trackedProjectBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.projectBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.projectKeywordsBindingSource)).BeginInit();
+            this.groupBox5.SuspendLayout();
             this.SuspendLayout();
             // 
             // cbxStartWithWindows
@@ -234,7 +239,7 @@
             this.btnSave.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnSave.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSave.ForeColor = System.Drawing.Color.Black;
-            this.btnSave.Location = new System.Drawing.Point(949, 588);
+            this.btnSave.Location = new System.Drawing.Point(881, 646);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(79, 30);
             this.btnSave.TabIndex = 20;
@@ -247,7 +252,7 @@
             this.btnCancel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnCancel.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCancel.ForeColor = System.Drawing.Color.Black;
-            this.btnCancel.Location = new System.Drawing.Point(864, 588);
+            this.btnCancel.Location = new System.Drawing.Point(796, 646);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(79, 30);
             this.btnCancel.TabIndex = 21;
@@ -257,6 +262,8 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.lblConnectionStatus);
+            this.groupBox1.Controls.Add(this.lnkTestAuth);
             this.groupBox1.Controls.Add(this.label6);
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.txtTogglAPIKey);
@@ -268,10 +275,33 @@
             this.groupBox1.ForeColor = System.Drawing.Color.DodgerBlue;
             this.groupBox1.Location = new System.Drawing.Point(16, 223);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(312, 213);
+            this.groupBox1.Size = new System.Drawing.Size(312, 235);
             this.groupBox1.TabIndex = 22;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Toggl Auth";
+            // 
+            // lblConnectionStatus
+            // 
+            this.lblConnectionStatus.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblConnectionStatus.ForeColor = System.Drawing.Color.White;
+            this.lblConnectionStatus.Location = new System.Drawing.Point(13, 204);
+            this.lblConnectionStatus.Name = "lblConnectionStatus";
+            this.lblConnectionStatus.Size = new System.Drawing.Size(284, 19);
+            this.lblConnectionStatus.TabIndex = 38;
+            this.lblConnectionStatus.Visible = false;
+            // 
+            // lnkTestAuth
+            // 
+            this.lnkTestAuth.AutoSize = true;
+            this.lnkTestAuth.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lnkTestAuth.LinkColor = System.Drawing.Color.DodgerBlue;
+            this.lnkTestAuth.Location = new System.Drawing.Point(15, 206);
+            this.lnkTestAuth.Name = "lnkTestAuth";
+            this.lnkTestAuth.Size = new System.Drawing.Size(105, 16);
+            this.lnkTestAuth.TabIndex = 37;
+            this.lnkTestAuth.TabStop = true;
+            this.lnkTestAuth.Text = "Test Connection";
+            this.lnkTestAuth.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lnkTestAuth_LinkClicked);
             // 
             // groupBox2
             // 
@@ -289,7 +319,7 @@
             this.groupBox2.Size = new System.Drawing.Size(312, 205);
             this.groupBox2.TabIndex = 23;
             this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Settings";
+            this.groupBox2.Text = "Program Settings";
             // 
             // txtLogHistory
             // 
@@ -319,7 +349,7 @@
             this.groupBox3.Controls.Add(this.txtTogglWorkspaceId);
             this.groupBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox3.ForeColor = System.Drawing.Color.DodgerBlue;
-            this.groupBox3.Location = new System.Drawing.Point(16, 442);
+            this.groupBox3.Location = new System.Drawing.Point(16, 464);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(312, 143);
             this.groupBox3.TabIndex = 24;
@@ -371,8 +401,6 @@
             // 
             // groupBox4
             // 
-            this.groupBox4.Controls.Add(this.button3);
-            this.groupBox4.Controls.Add(this.button4);
             this.groupBox4.Controls.Add(this.btnDownProjectListItem);
             this.groupBox4.Controls.Add(this.btnUpProjectListItem);
             this.groupBox4.Controls.Add(this.lstProjects);
@@ -386,34 +414,10 @@
             this.groupBox4.ForeColor = System.Drawing.Color.DodgerBlue;
             this.groupBox4.Location = new System.Drawing.Point(349, 12);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(676, 369);
+            this.groupBox4.Size = new System.Drawing.Size(610, 369);
             this.groupBox4.TabIndex = 25;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Keyword Settings";
-            // 
-            // button3
-            // 
-            this.button3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button3.ForeColor = System.Drawing.Color.White;
-            this.button3.Location = new System.Drawing.Point(602, 211);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(57, 41);
-            this.button3.TabIndex = 41;
-            this.button3.Text = "\\/";
-            this.button3.UseVisualStyleBackColor = false;
-            // 
-            // button4
-            // 
-            this.button4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.button4.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button4.ForeColor = System.Drawing.Color.White;
-            this.button4.Location = new System.Drawing.Point(602, 164);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(56, 41);
-            this.button4.TabIndex = 40;
-            this.button4.Text = "/\\";
-            this.button4.UseVisualStyleBackColor = false;
             // 
             // btnDownProjectListItem
             // 
@@ -514,8 +518,6 @@
             // 
             // txtKeywordList
             // 
-            this.txtKeywordList.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.txtKeywordList.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.txtKeywordList.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtKeywordList.ForeColor = System.Drawing.Color.White;
@@ -546,9 +548,9 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.lblMessages.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblMessages.ForeColor = System.Drawing.Color.White;
-            this.lblMessages.Location = new System.Drawing.Point(13, 588);
+            this.lblMessages.Location = new System.Drawing.Point(13, 646);
             this.lblMessages.Name = "lblMessages";
-            this.lblMessages.Size = new System.Drawing.Size(845, 30);
+            this.lblMessages.Size = new System.Drawing.Size(777, 30);
             this.lblMessages.TabIndex = 13;
             // 
             // projectKeywordsBindingSource
@@ -556,12 +558,63 @@
             this.projectKeywordsBindingSource.DataMember = "ProjectKeywords";
             this.projectKeywordsBindingSource.DataSource = this.trackedProjectBindingSource;
             // 
-            // Menu
+            // groupBox5
+            // 
+            this.groupBox5.Controls.Add(this.cbxStopOnNeutral);
+            this.groupBox5.Controls.Add(this.label11);
+            this.groupBox5.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox5.ForeColor = System.Drawing.Color.DodgerBlue;
+            this.groupBox5.Location = new System.Drawing.Point(349, 387);
+            this.groupBox5.Name = "groupBox5";
+            this.groupBox5.Size = new System.Drawing.Size(610, 220);
+            this.groupBox5.TabIndex = 25;
+            this.groupBox5.TabStop = false;
+            this.groupBox5.Text = "Neutral Window Settings";
+            // 
+            // cbxStopOnNeutral
+            // 
+            this.cbxStopOnNeutral.AutoSize = true;
+            this.cbxStopOnNeutral.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbxStopOnNeutral.ForeColor = System.Drawing.Color.White;
+            this.cbxStopOnNeutral.Location = new System.Drawing.Point(10, 37);
+            this.cbxStopOnNeutral.Name = "cbxStopOnNeutral";
+            this.cbxStopOnNeutral.Size = new System.Drawing.Size(305, 22);
+            this.cbxStopOnNeutral.TabIndex = 17;
+            this.cbxStopOnNeutral.Text = "Stop timer when a neutral window is active";
+            this.cbxStopOnNeutral.UseVisualStyleBackColor = true;
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label11.ForeColor = System.Drawing.Color.White;
+            this.label11.Location = new System.Drawing.Point(7, 68);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(123, 18);
+            this.label11.TabIndex = 11;
+            this.label11.Text = "Neutral keywords";
+            // 
+            // txtNeutralWindows
+            // 
+            this.txtNeutralWindows.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtNeutralWindows.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.txtNeutralWindows.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtNeutralWindows.ForeColor = System.Drawing.Color.White;
+            this.txtNeutralWindows.Location = new System.Drawing.Point(359, 476);
+            this.txtNeutralWindows.Multiline = true;
+            this.txtNeutralWindows.Name = "txtNeutralWindows";
+            this.txtNeutralWindows.Size = new System.Drawing.Size(586, 117);
+            this.txtNeutralWindows.TabIndex = 42;
+            // 
+            // Settings
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.ClientSize = new System.Drawing.Size(1039, 625);
+            this.ClientSize = new System.Drawing.Size(971, 683);
+            this.Controls.Add(this.txtNeutralWindows);
+            this.Controls.Add(this.groupBox5);
             this.Controls.Add(this.lblMessages);
             this.Controls.Add(this.groupBox4);
             this.Controls.Add(this.groupBox3);
@@ -569,8 +622,8 @@
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnSave);
-            this.Name = "Menu";
-            this.Text = "Menu";
+            this.Name = "Settings";
+            this.Text = "Settings";
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
@@ -583,7 +636,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.trackedProjectBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.projectBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.projectKeywordsBindingSource)).EndInit();
+            this.groupBox5.ResumeLayout(false);
+            this.groupBox5.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -608,8 +664,6 @@
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.GroupBox groupBox4;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Button btnDownProjectListItem;
         private System.Windows.Forms.Button btnUpProjectListItem;
         private System.Windows.Forms.ListBox lstProjects;
@@ -629,5 +683,11 @@
         private System.Windows.Forms.TextBox txtLogHistory;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.BindingSource projectKeywordsBindingSource;
+        private System.Windows.Forms.GroupBox groupBox5;
+        private System.Windows.Forms.CheckBox cbxStopOnNeutral;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.TextBox txtNeutralWindows;
+        private System.Windows.Forms.Label lblConnectionStatus;
+        private System.Windows.Forms.LinkLabel lnkTestAuth;
     }
 }

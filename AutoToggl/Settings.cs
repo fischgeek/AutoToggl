@@ -7,21 +7,33 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
 using System.Text.RegularExpressions;
+using System.Drawing;
+using System.Threading.Tasks;
 
 namespace AutoToggl
 {
-    public partial class Menu : Form
+    public partial class Settings : Form
     {
         DataHandler dh = DataHandler.GetInstance();
         TogglBase tb = TogglBase.GetInstance();
         BindingList<TrackedProject> trackedProjectsBindingList;
-        Settings settings = new Settings();
+        DesktopProjectDataHandler.Settings settings = new DesktopProjectDataHandler.Settings();
 
-        public Menu()
+        public Settings()
         {
             InitializeComponent();
             var settings = dh.GetSettings();
             trackedProjectsBindingList = new BindingList<TrackedProject>(dh.GetTrackedProjects());
+            ApplySettingsToUI(settings);
+            lstProjects.DataSource = trackedProjectsBindingList;
+            tb.Init(settings.TogglAPIKey, settings.TogglWorkspaceId);
+            ddlTogglProjects.DataSource = tb.GetProjects();
+            ddlTogglProjects.DisplayMember = "name";
+            ddlTogglProjects.ValueMember = "id";
+        }
+
+        private void ApplySettingsToUI(DesktopProjectDataHandler.Settings settings)
+        {
             cbxStartWithWindows.Checked = settings.StartWithWindows;
             cbxShowOnStart.Checked = settings.ShowOnStart;
             cbxCloseToTray.Checked = settings.CloseToTray;
@@ -30,17 +42,8 @@ namespace AutoToggl
             txtTogglPassword.Text = settings.TogglPassword;
             txtTogglAPIKey.Text = settings.TogglAPIKey;
             txtTogglWorkspaceId.Text = settings.TogglWorkspaceId.ToString();
-            lstProjects.DataSource = trackedProjectsBindingList;
-            tb.Init(settings.TogglAPIKey, settings.TogglWorkspaceId);
-            var me = tb.GetMe();
-            if (me == null) {
-                lblMessages.Text = "Toggl authentication was unsuccessful. Please check the Toggl Authentication section.";
-            } else {
-                lblMessages.Text = "Toggl authentication was successful. Welcome.";
-                ddlTogglProjects.DataSource = tb.GetProjects();
-                ddlTogglProjects.DisplayMember = "name";
-                ddlTogglProjects.ValueMember = "id";
-            }
+            txtNeutralWindows.Text = settings.NeutralWindows.ArrayToStr();
+            cbxStopOnNeutral.Checked = settings.StopOnNeutral;
         }
 
         private void btnCancel_Click(object sender, EventArgs e)
@@ -58,6 +61,8 @@ namespace AutoToggl
             settings.TogglPassword =    txtTogglPassword.Text;
             settings.TogglAPIKey =      txtTogglAPIKey.Text;
             settings.TogglWorkspaceId = txtTogglWorkspaceId.Text.JFStringToInt();
+            settings.NeutralWindows = txtNeutralWindows.Text.StrToArray();
+            settings.StopOnNeutral = cbxStopOnNeutral.Checked;
             dh.UpdateSettings(settings);
         }
 
@@ -124,7 +129,19 @@ namespace AutoToggl
             }
         }
 
-
+        private void lnkTestAuth_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            lnkTestAuth.Visible = false;
+            lblConnectionStatus.Visible = true;
+            var me = tb.GetMe();
+            if (me == null) {
+                lblConnectionStatus.ForeColor = Color.Red;
+                lblConnectionStatus.Text = "Toggl authentication was unsuccessful.";
+            } else {
+                lblConnectionStatus.ForeColor = Color.Green;
+                lblConnectionStatus.Text = "Toggl authentication was successful.";
+            }
+        }
     }
 
     public enum KeywordDisplayMode

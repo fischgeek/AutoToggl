@@ -8,14 +8,14 @@ namespace AutoToggl
 {
     public class FormProvider
     {
-        private static Menu _menu;
+        private static Settings _menu;
         //private static QuickText _quickText;
 
-        public static Menu Menu
+        public static Settings Menu
         {
             get {
                 if (_menu == null || _menu.IsDisposed) {
-                    _menu = new Menu();
+                    _menu = new Settings();
                 }
                 _menu.Activate();
                 return _menu;

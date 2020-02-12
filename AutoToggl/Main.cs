@@ -15,7 +15,7 @@ namespace AutoToggl
         Timer timer = new Timer();
         Timer secondTimer = new Timer();
         DataHandler dh = DataHandler.GetInstance();
-        Settings settings;
+        DesktopProjectDataHandler.Settings settings;
         public static string lastActive = string.Empty;
         public static bool idle = false;
         public static bool aTimerIsRunning = false;
