@@ -73,7 +73,7 @@ namespace AutoToggl
                 trackedProjectsBindingList.Add(new TrackedProject() {
                     id = selectedItem.id
                     , name = selectedItem.name
-                    , position = 0
+                    , position = trackedProjectsBindingList.Count()
                     , wid = Convert.ToInt32(txtTogglWorkspaceId.Text)
                 });
                 dh.SaveTrackedProjects(trackedProjectsBindingList.ToList());
@@ -152,6 +152,36 @@ namespace AutoToggl
                 dh.SaveTrackedProjects(trackedProjectsBindingList.ToList());
             }
         }
+
+        private void btnUpProjectListItem_Click(object sender, EventArgs e) => MoveProjectPosition(-1);
+
+        private void btnDownProjectListItem_Click(object sender, EventArgs e) => MoveProjectPosition(1);
+
+        private void MoveProjectPosition(int direction)
+        {
+            if (lstProjects.SelectedItem == null || lstProjects.SelectedIndex < 0)
+                return;
+            var newIndex = lstProjects.SelectedIndex + direction;
+            if (newIndex < 0 || newIndex >= lstProjects.Items.Count)
+                return;
+            var proj = lstProjects.SelectedItem as TrackedProject;
+            trackedProjectsBindingList.Remove(proj);
+            trackedProjectsBindingList.Insert(newIndex, proj);
+            var pos = 0;
+            foreach(var item in lstProjects.Items) {
+                var p = item as TrackedProject;
+                p.position = pos;
+                pos++;
+            }
+            dh.SaveTrackedProjects(trackedProjectsBindingList.ToList());
+            lstProjects.SetSelected(newIndex, true);
+        }
+    }
+
+    public enum MoveProject
+    {
+        Up,
+        Down
     }
 
     public enum KeywordDisplayMode

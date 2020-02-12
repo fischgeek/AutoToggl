@@ -138,10 +138,12 @@ namespace AutoToggl
 
         private static bool KeywordExistsInActiveWindowTitle(TrackedProject project, string currentActive)
         {
-            foreach (var keyword in project.projectKeywords) {
-                var match = Regex.Match(currentActive, keyword, RegexOptions.IgnoreCase);
-                if (match.Success) {
-                    return true;
+            if (project.projectKeywords != null) {
+                foreach (var keyword in project.projectKeywords) {
+                    var match = Regex.Match(currentActive, keyword, RegexOptions.IgnoreCase);
+                    if (match.Success) {
+                        return true;
+                    }
                 }
             }
             return false;

@@ -432,6 +432,7 @@
             this.btnDownProjectListItem.TabIndex = 39;
             this.btnDownProjectListItem.Text = "\\/";
             this.btnDownProjectListItem.UseVisualStyleBackColor = false;
+            this.btnDownProjectListItem.Click += new System.EventHandler(this.btnDownProjectListItem_Click);
             // 
             // btnUpProjectListItem
             // 
@@ -444,6 +445,7 @@
             this.btnUpProjectListItem.TabIndex = 38;
             this.btnUpProjectListItem.Text = "/\\";
             this.btnUpProjectListItem.UseVisualStyleBackColor = false;
+            this.btnUpProjectListItem.Click += new System.EventHandler(this.btnUpProjectListItem_Click);
             // 
             // lstProjects
             // 
