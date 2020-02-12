@@ -33,7 +33,15 @@
             this.lnkToggleConsole = new System.Windows.Forms.LinkLabel();
             this.txtConsole = new System.Windows.Forms.RichTextBox();
             this.picMenu = new System.Windows.Forms.PictureBox();
+            this.lblHr = new System.Windows.Forms.Label();
+            this.pnlFancyTimer = new System.Windows.Forms.Panel();
+            this.label5 = new System.Windows.Forms.Label();
+            this.lblSec = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.lblMin = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.picMenu)).BeginInit();
+            this.pnlFancyTimer.SuspendLayout();
             this.SuspendLayout();
             // 
             // lblTimer
@@ -46,7 +54,7 @@
             this.lblTimer.Name = "lblTimer";
             this.lblTimer.Size = new System.Drawing.Size(211, 128);
             this.lblTimer.TabIndex = 2;
-            this.lblTimer.Text = "143";
+            this.lblTimer.Text = "0";
             this.lblTimer.TextAlign = System.Drawing.ContentAlignment.TopRight;
             // 
             // lblTrackingProjectTitle
@@ -54,7 +62,7 @@
             this.lblTrackingProjectTitle.AutoSize = true;
             this.lblTrackingProjectTitle.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTrackingProjectTitle.ForeColor = System.Drawing.Color.DodgerBlue;
-            this.lblTrackingProjectTitle.Location = new System.Drawing.Point(9, 74);
+            this.lblTrackingProjectTitle.Location = new System.Drawing.Point(5, 91);
             this.lblTrackingProjectTitle.Margin = new System.Windows.Forms.Padding(0);
             this.lblTrackingProjectTitle.Name = "lblTrackingProjectTitle";
             this.lblTrackingProjectTitle.Size = new System.Drawing.Size(205, 37);
@@ -67,7 +75,7 @@
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(13, 56);
+            this.label3.Location = new System.Drawing.Point(9, 73);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(65, 18);
             this.label3.TabIndex = 4;
@@ -117,12 +125,107 @@
             this.picMenu.MouseLeave += new System.EventHandler(this.picMenu_MouseLeave);
             this.picMenu.MouseHover += new System.EventHandler(this.picMenu_MouseHover);
             // 
+            // lblHr
+            // 
+            this.lblHr.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.lblHr.BackColor = System.Drawing.Color.Transparent;
+            this.lblHr.Font = new System.Drawing.Font("Segoe UI", 72F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblHr.ForeColor = System.Drawing.Color.DodgerBlue;
+            this.lblHr.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
+            this.lblHr.Location = new System.Drawing.Point(-18, -26);
+            this.lblHr.Margin = new System.Windows.Forms.Padding(0);
+            this.lblHr.Name = "lblHr";
+            this.lblHr.Size = new System.Drawing.Size(160, 128);
+            this.lblHr.TabIndex = 3;
+            this.lblHr.Text = "0";
+            this.lblHr.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // pnlFancyTimer
+            // 
+            this.pnlFancyTimer.Controls.Add(this.label5);
+            this.pnlFancyTimer.Controls.Add(this.lblSec);
+            this.pnlFancyTimer.Controls.Add(this.label2);
+            this.pnlFancyTimer.Controls.Add(this.lblMin);
+            this.pnlFancyTimer.Controls.Add(this.label1);
+            this.pnlFancyTimer.Controls.Add(this.lblHr);
+            this.pnlFancyTimer.Location = new System.Drawing.Point(332, 5);
+            this.pnlFancyTimer.Name = "pnlFancyTimer";
+            this.pnlFancyTimer.Size = new System.Drawing.Size(457, 86);
+            this.pnlFancyTimer.TabIndex = 9;
+            // 
+            // label5
+            // 
+            this.label5.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.ForeColor = System.Drawing.Color.White;
+            this.label5.Location = new System.Drawing.Point(434, -19);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(65, 102);
+            this.label5.TabIndex = 10;
+            this.label5.Text = "s";
+            this.label5.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
+            // 
+            // lblSec
+            // 
+            this.lblSec.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.lblSec.BackColor = System.Drawing.Color.Transparent;
+            this.lblSec.Font = new System.Drawing.Font("Segoe UI", 72F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblSec.ForeColor = System.Drawing.Color.DodgerBlue;
+            this.lblSec.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
+            this.lblSec.Location = new System.Drawing.Point(302, -22);
+            this.lblSec.Margin = new System.Windows.Forms.Padding(0);
+            this.lblSec.Name = "lblSec";
+            this.lblSec.Size = new System.Drawing.Size(160, 128);
+            this.lblSec.TabIndex = 9;
+            this.lblSec.Text = "0";
+            this.lblSec.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // label2
+            // 
+            this.label2.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.White;
+            this.label2.Location = new System.Drawing.Point(274, -19);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(65, 102);
+            this.label2.TabIndex = 8;
+            this.label2.Text = "m";
+            this.label2.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
+            // 
+            // lblMin
+            // 
+            this.lblMin.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.lblMin.BackColor = System.Drawing.Color.Transparent;
+            this.lblMin.Font = new System.Drawing.Font("Segoe UI", 72F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblMin.ForeColor = System.Drawing.Color.DodgerBlue;
+            this.lblMin.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
+            this.lblMin.Location = new System.Drawing.Point(142, -22);
+            this.lblMin.Margin = new System.Windows.Forms.Padding(0);
+            this.lblMin.Name = "lblMin";
+            this.lblMin.Size = new System.Drawing.Size(160, 128);
+            this.lblMin.TabIndex = 7;
+            this.lblMin.Text = "0";
+            this.lblMin.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // label1
+            // 
+            this.label1.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.White;
+            this.label1.Location = new System.Drawing.Point(116, -16);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(65, 102);
+            this.label1.TabIndex = 6;
+            this.label1.Text = "h";
+            this.label1.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
+            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.ClientSize = new System.Drawing.Size(801, 671);
+            this.Controls.Add(this.pnlFancyTimer);
             this.Controls.Add(this.picMenu);
             this.Controls.Add(this.txtConsole);
             this.Controls.Add(this.lnkToggleConsole);
@@ -133,6 +236,7 @@
             this.Text = "AutoToggl";
             this.Shown += new System.EventHandler(this.Main_Shown);
             ((System.ComponentModel.ISupportInitialize)(this.picMenu)).EndInit();
+            this.pnlFancyTimer.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -145,6 +249,13 @@
         private System.Windows.Forms.LinkLabel lnkToggleConsole;
         private System.Windows.Forms.RichTextBox txtConsole;
         private System.Windows.Forms.PictureBox picMenu;
+        private System.Windows.Forms.Label lblHr;
+        private System.Windows.Forms.Panel pnlFancyTimer;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label lblSec;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label lblMin;
+        private System.Windows.Forms.Label label1;
     }
 }
 

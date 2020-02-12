@@ -48,6 +48,7 @@
             this.lblConnectionStatus = new System.Windows.Forms.Label();
             this.lnkTestAuth = new System.Windows.Forms.LinkLabel();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.cbxShowFancyTimer = new System.Windows.Forms.CheckBox();
             this.txtLogHistory = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
@@ -56,6 +57,7 @@
             this.ddlTogglProjects = new System.Windows.Forms.ComboBox();
             this.togglProjectsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.lnkDeleteTrackedProject = new System.Windows.Forms.LinkLabel();
             this.btnDownProjectListItem = new System.Windows.Forms.Button();
             this.btnUpProjectListItem = new System.Windows.Forms.Button();
             this.lstProjects = new System.Windows.Forms.ListBox();
@@ -73,7 +75,6 @@
             this.cbxStopOnNeutral = new System.Windows.Forms.CheckBox();
             this.label11 = new System.Windows.Forms.Label();
             this.txtNeutralWindows = new System.Windows.Forms.TextBox();
-            this.lnkDeleteTrackedProject = new System.Windows.Forms.LinkLabel();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -164,7 +165,7 @@
             // txtCheckInterval
             // 
             this.txtCheckInterval.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCheckInterval.Location = new System.Drawing.Point(210, 114);
+            this.txtCheckInterval.Location = new System.Drawing.Point(210, 141);
             this.txtCheckInterval.Name = "txtCheckInterval";
             this.txtCheckInterval.Size = new System.Drawing.Size(87, 24);
             this.txtCheckInterval.TabIndex = 14;
@@ -174,7 +175,7 @@
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.ForeColor = System.Drawing.Color.White;
-            this.label5.Location = new System.Drawing.Point(10, 117);
+            this.label5.Location = new System.Drawing.Point(10, 144);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(194, 18);
             this.label5.TabIndex = 13;
@@ -240,7 +241,7 @@
             this.btnSave.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnSave.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSave.ForeColor = System.Drawing.Color.Black;
-            this.btnSave.Location = new System.Drawing.Point(881, 646);
+            this.btnSave.Location = new System.Drawing.Point(881, 745);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(79, 30);
             this.btnSave.TabIndex = 20;
@@ -253,7 +254,7 @@
             this.btnCancel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnCancel.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCancel.ForeColor = System.Drawing.Color.Black;
-            this.btnCancel.Location = new System.Drawing.Point(796, 646);
+            this.btnCancel.Location = new System.Drawing.Point(796, 745);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(79, 30);
             this.btnCancel.TabIndex = 21;
@@ -274,7 +275,7 @@
             this.groupBox1.Controls.Add(this.label7);
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.ForeColor = System.Drawing.Color.DodgerBlue;
-            this.groupBox1.Location = new System.Drawing.Point(16, 223);
+            this.groupBox1.Location = new System.Drawing.Point(16, 235);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(312, 235);
             this.groupBox1.TabIndex = 22;
@@ -306,6 +307,7 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.cbxShowFancyTimer);
             this.groupBox2.Controls.Add(this.txtLogHistory);
             this.groupBox2.Controls.Add(this.label9);
             this.groupBox2.Controls.Add(this.cbxStartWithWindows);
@@ -317,15 +319,27 @@
             this.groupBox2.ForeColor = System.Drawing.Color.DodgerBlue;
             this.groupBox2.Location = new System.Drawing.Point(16, 12);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(312, 205);
+            this.groupBox2.Size = new System.Drawing.Size(312, 217);
             this.groupBox2.TabIndex = 23;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Program Settings";
             // 
+            // cbxShowFancyTimer
+            // 
+            this.cbxShowFancyTimer.AutoSize = true;
+            this.cbxShowFancyTimer.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbxShowFancyTimer.ForeColor = System.Drawing.Color.White;
+            this.cbxShowFancyTimer.Location = new System.Drawing.Point(13, 117);
+            this.cbxShowFancyTimer.Name = "cbxShowFancyTimer";
+            this.cbxShowFancyTimer.Size = new System.Drawing.Size(168, 22);
+            this.cbxShowFancyTimer.TabIndex = 17;
+            this.cbxShowFancyTimer.Text = "Display Time in h:m:s";
+            this.cbxShowFancyTimer.UseVisualStyleBackColor = true;
+            // 
             // txtLogHistory
             // 
             this.txtLogHistory.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtLogHistory.Location = new System.Drawing.Point(210, 148);
+            this.txtLogHistory.Location = new System.Drawing.Point(210, 175);
             this.txtLogHistory.Name = "txtLogHistory";
             this.txtLogHistory.Size = new System.Drawing.Size(87, 24);
             this.txtLogHistory.TabIndex = 16;
@@ -335,7 +349,7 @@
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label9.ForeColor = System.Drawing.Color.White;
-            this.label9.Location = new System.Drawing.Point(10, 151);
+            this.label9.Location = new System.Drawing.Point(10, 178);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(189, 18);
             this.label9.TabIndex = 15;
@@ -350,7 +364,7 @@
             this.groupBox3.Controls.Add(this.txtTogglWorkspaceId);
             this.groupBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox3.ForeColor = System.Drawing.Color.DodgerBlue;
-            this.groupBox3.Location = new System.Drawing.Point(16, 464);
+            this.groupBox3.Location = new System.Drawing.Point(16, 476);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(312, 143);
             this.groupBox3.TabIndex = 24;
@@ -420,6 +434,19 @@
             this.groupBox4.TabIndex = 25;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Keyword Settings";
+            // 
+            // lnkDeleteTrackedProject
+            // 
+            this.lnkDeleteTrackedProject.AutoSize = true;
+            this.lnkDeleteTrackedProject.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lnkDeleteTrackedProject.LinkColor = System.Drawing.Color.DodgerBlue;
+            this.lnkDeleteTrackedProject.Location = new System.Drawing.Point(211, 36);
+            this.lnkDeleteTrackedProject.Name = "lnkDeleteTrackedProject";
+            this.lnkDeleteTrackedProject.Size = new System.Drawing.Size(48, 16);
+            this.lnkDeleteTrackedProject.TabIndex = 40;
+            this.lnkDeleteTrackedProject.TabStop = true;
+            this.lnkDeleteTrackedProject.Text = "Delete";
+            this.lnkDeleteTrackedProject.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lnkDeleteTrackedProject_LinkClicked);
             // 
             // btnDownProjectListItem
             // 
@@ -552,7 +579,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.lblMessages.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblMessages.ForeColor = System.Drawing.Color.White;
-            this.lblMessages.Location = new System.Drawing.Point(13, 646);
+            this.lblMessages.Location = new System.Drawing.Point(13, 745);
             this.lblMessages.Name = "lblMessages";
             this.lblMessages.Size = new System.Drawing.Size(777, 30);
             this.lblMessages.TabIndex = 13;
@@ -570,7 +597,7 @@
             this.groupBox5.ForeColor = System.Drawing.Color.DodgerBlue;
             this.groupBox5.Location = new System.Drawing.Point(349, 387);
             this.groupBox5.Name = "groupBox5";
-            this.groupBox5.Size = new System.Drawing.Size(610, 220);
+            this.groupBox5.Size = new System.Drawing.Size(610, 232);
             this.groupBox5.TabIndex = 25;
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "Neutral Window Settings";
@@ -608,28 +635,15 @@
             this.txtNeutralWindows.Location = new System.Drawing.Point(359, 476);
             this.txtNeutralWindows.Multiline = true;
             this.txtNeutralWindows.Name = "txtNeutralWindows";
-            this.txtNeutralWindows.Size = new System.Drawing.Size(586, 117);
+            this.txtNeutralWindows.Size = new System.Drawing.Size(586, 129);
             this.txtNeutralWindows.TabIndex = 42;
-            // 
-            // lnkDeleteTrackedProject
-            // 
-            this.lnkDeleteTrackedProject.AutoSize = true;
-            this.lnkDeleteTrackedProject.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lnkDeleteTrackedProject.LinkColor = System.Drawing.Color.DodgerBlue;
-            this.lnkDeleteTrackedProject.Location = new System.Drawing.Point(211, 36);
-            this.lnkDeleteTrackedProject.Name = "lnkDeleteTrackedProject";
-            this.lnkDeleteTrackedProject.Size = new System.Drawing.Size(48, 16);
-            this.lnkDeleteTrackedProject.TabIndex = 40;
-            this.lnkDeleteTrackedProject.TabStop = true;
-            this.lnkDeleteTrackedProject.Text = "Delete";
-            this.lnkDeleteTrackedProject.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lnkDeleteTrackedProject_LinkClicked);
             // 
             // Settings
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.ClientSize = new System.Drawing.Size(971, 683);
+            this.ClientSize = new System.Drawing.Size(971, 782);
             this.Controls.Add(this.txtNeutralWindows);
             this.Controls.Add(this.groupBox5);
             this.Controls.Add(this.lblMessages);
@@ -640,7 +654,7 @@
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnSave);
             this.Name = "Settings";
-            this.Text = "Settings";
+            this.Text = "AutoToggl Settings";
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
@@ -707,5 +721,6 @@
         private System.Windows.Forms.Label lblConnectionStatus;
         private System.Windows.Forms.LinkLabel lnkTestAuth;
         private System.Windows.Forms.LinkLabel lnkDeleteTrackedProject;
+        private System.Windows.Forms.CheckBox cbxShowFancyTimer;
     }
 }

@@ -24,26 +24,44 @@ namespace AutoToggl
         public Main()
         {
             InitializeComponent();
-            settings = dh.GetSettings();
-            
+            ApplySettings();
+
             timer.Interval = settings.CheckInterval;
             timer.Tick += Timer_Tick;
 
             secondTimer.Interval = 1000;
             secondTimer.Tick += SecondTimer_Tick;
-            
-            HideConsole();
+
+
             tb.Init(settings.TogglAPIKey, settings.TogglWorkspaceId);
             CheckForARunningTimer();
+        }
+
+        private void ApplySettings()
+        {
+            settings = dh.GetSettings();
+            HideConsole();
+            pnlFancyTimer.Visible = settings.ShowFancyTimer;
+            lblTimer.Visible = !settings.ShowFancyTimer;
         }
 
         private void SecondTimer_Tick(object sender, EventArgs e)
         {
             var dur = "";
+            var hr = "0";
+            var mn = "0";
+            var sc = "0";
             if (aTimerIsRunning) {
-                dur = tb.CalculateDuration(runningTimeEntry.duration).TotalSeconds.ToString();
+                var ts = tb.CalculateDuration(runningTimeEntry.duration);
+                dur = ts.TotalSeconds.ToString();
+                hr = ts.Hours.ToString();
+                mn = ts.Minutes.ToString();
+                sc = ts.Seconds.ToString();
             }
             lblTimer.Text = dur;
+            lblHr.Text = hr;
+            lblMin.Text = mn;
+            lblSec.Text = sc;
         }
 
         private void Timer_Tick(object sender, EventArgs e)
@@ -68,7 +86,10 @@ namespace AutoToggl
                         lblTrackingProjectTitle.Text = "";
                         tb.StopRunningTimer();
                         secondTimer.Stop();
-                        lblTimer.Text = "";
+                        lblTimer.Text = "0";
+                        lblHr.Text = "0";
+                        lblMin.Text = "0";
+                        lblSec.Text = "0";
                         aTimerIsRunning = false;
                         runningTimeEntry = new TimeEntry();
                     }

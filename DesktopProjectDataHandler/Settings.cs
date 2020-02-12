@@ -18,5 +18,6 @@ namespace DesktopProjectDataHandler
         public int TogglWorkspaceId { get; set; }
         public bool StopOnNeutral { get; set; } = false;
         public string[] NeutralWindows { get; set; }
+        public bool ShowFancyTimer { get; set; }
     }
 }

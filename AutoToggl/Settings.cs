@@ -37,6 +37,7 @@ namespace AutoToggl
             cbxStartWithWindows.Checked = settings.StartWithWindows;
             cbxShowOnStart.Checked = settings.ShowOnStart;
             cbxCloseToTray.Checked = settings.CloseToTray;
+            cbxShowFancyTimer.Checked = settings.ShowFancyTimer;
             txtCheckInterval.Text = settings.CheckInterval.ToString();
             txtTogglUsername.Text = settings.TogglUsername;
             txtTogglPassword.Text = settings.TogglPassword;
@@ -63,6 +64,7 @@ namespace AutoToggl
             settings.TogglWorkspaceId = txtTogglWorkspaceId.Text.JFStringToInt();
             settings.NeutralWindows = txtNeutralWindows.Text.StrToArray();
             settings.StopOnNeutral = cbxStopOnNeutral.Checked;
+            settings.ShowFancyTimer = cbxShowFancyTimer.Checked;
             dh.UpdateSettings(settings);
         }
 
