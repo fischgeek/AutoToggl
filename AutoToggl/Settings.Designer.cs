@@ -73,6 +73,7 @@
             this.cbxStopOnNeutral = new System.Windows.Forms.CheckBox();
             this.label11 = new System.Windows.Forms.Label();
             this.txtNeutralWindows = new System.Windows.Forms.TextBox();
+            this.lnkDeleteTrackedProject = new System.Windows.Forms.LinkLabel();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -401,6 +402,7 @@
             // 
             // groupBox4
             // 
+            this.groupBox4.Controls.Add(this.lnkDeleteTrackedProject);
             this.groupBox4.Controls.Add(this.btnDownProjectListItem);
             this.groupBox4.Controls.Add(this.btnUpProjectListItem);
             this.groupBox4.Controls.Add(this.lstProjects);
@@ -607,6 +609,19 @@
             this.txtNeutralWindows.Size = new System.Drawing.Size(586, 117);
             this.txtNeutralWindows.TabIndex = 42;
             // 
+            // lnkDeleteTrackedProject
+            // 
+            this.lnkDeleteTrackedProject.AutoSize = true;
+            this.lnkDeleteTrackedProject.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lnkDeleteTrackedProject.LinkColor = System.Drawing.Color.DodgerBlue;
+            this.lnkDeleteTrackedProject.Location = new System.Drawing.Point(211, 36);
+            this.lnkDeleteTrackedProject.Name = "lnkDeleteTrackedProject";
+            this.lnkDeleteTrackedProject.Size = new System.Drawing.Size(48, 16);
+            this.lnkDeleteTrackedProject.TabIndex = 40;
+            this.lnkDeleteTrackedProject.TabStop = true;
+            this.lnkDeleteTrackedProject.Text = "Delete";
+            this.lnkDeleteTrackedProject.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lnkDeleteTrackedProject_LinkClicked);
+            // 
             // Settings
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -689,5 +704,6 @@
         private System.Windows.Forms.TextBox txtNeutralWindows;
         private System.Windows.Forms.Label lblConnectionStatus;
         private System.Windows.Forms.LinkLabel lnkTestAuth;
+        private System.Windows.Forms.LinkLabel lnkDeleteTrackedProject;
     }
 }

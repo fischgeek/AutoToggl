@@ -142,6 +142,16 @@ namespace AutoToggl
                 lblConnectionStatus.Text = "Toggl authentication was successful.";
             }
         }
+
+        private void lnkDeleteTrackedProject_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            var ci = lstProjects.SelectedItem as TrackedProject;
+            var diagResult = MessageBox.Show($"Removing project {ci.name}.\r\n\r\nAre you sure you want to remove this project from AutoToggl? You can add it again later.", "AutoToggl", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question);
+            if (diagResult == DialogResult.Yes) {
+                trackedProjectsBindingList.Remove(ci);
+                dh.SaveTrackedProjects(trackedProjectsBindingList.ToList());
+            }
+        }
     }
 
     public enum KeywordDisplayMode
