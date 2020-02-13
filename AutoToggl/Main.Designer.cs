@@ -27,6 +27,8 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Main));
             this.lblTimer = new System.Windows.Forms.Label();
             this.lblTrackingProjectTitle = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -40,6 +42,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.lblMin = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.notifyIcon1 = new System.Windows.Forms.NotifyIcon(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.picMenu)).BeginInit();
             this.pnlFancyTimer.SuspendLayout();
             this.SuspendLayout();
@@ -220,6 +223,16 @@
             this.label1.Text = "h";
             this.label1.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
             // 
+            // notifyIcon1
+            // 
+            this.notifyIcon1.BalloonTipIcon = System.Windows.Forms.ToolTipIcon.Info;
+            this.notifyIcon1.BalloonTipText = "Show AutoToggl";
+            this.notifyIcon1.BalloonTipTitle = "AutoToggl";
+            this.notifyIcon1.Icon = ((System.Drawing.Icon)(resources.GetObject("notifyIcon1.Icon")));
+            this.notifyIcon1.Text = "AutoToggl";
+            this.notifyIcon1.BalloonTipClicked += new System.EventHandler(this.notifyIcon1_BalloonTipClicked);
+            this.notifyIcon1.DoubleClick += new System.EventHandler(this.notifyIcon1_DoubleClick);
+            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -236,6 +249,7 @@
             this.Name = "Main";
             this.Text = "AutoToggl";
             this.Shown += new System.EventHandler(this.Main_Shown);
+            this.Resize += new System.EventHandler(this.Main_Resize);
             ((System.ComponentModel.ISupportInitialize)(this.picMenu)).EndInit();
             this.pnlFancyTimer.ResumeLayout(false);
             this.ResumeLayout(false);
@@ -257,6 +271,7 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label lblMin;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.NotifyIcon notifyIcon1;
     }
 }
 

@@ -77,6 +77,8 @@
             this.cbxStopOnNeutral = new System.Windows.Forms.CheckBox();
             this.label11 = new System.Windows.Forms.Label();
             this.txtNeutralWindows = new System.Windows.Forms.TextBox();
+            this.cbxDormammu = new System.Windows.Forms.CheckBox();
+            this.cbxMinimizeToTray = new System.Windows.Forms.CheckBox();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -169,7 +171,7 @@
             // txtCheckInterval
             // 
             this.txtCheckInterval.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCheckInterval.Location = new System.Drawing.Point(210, 141);
+            this.txtCheckInterval.Location = new System.Drawing.Point(210, 195);
             this.txtCheckInterval.Name = "txtCheckInterval";
             this.txtCheckInterval.Size = new System.Drawing.Size(87, 24);
             this.txtCheckInterval.TabIndex = 14;
@@ -179,7 +181,7 @@
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.ForeColor = System.Drawing.Color.White;
-            this.label5.Location = new System.Drawing.Point(10, 144);
+            this.label5.Location = new System.Drawing.Point(10, 198);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(194, 18);
             this.label5.TabIndex = 13;
@@ -251,7 +253,7 @@
             this.btnSave.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnSave.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSave.ForeColor = System.Drawing.Color.Black;
-            this.btnSave.Location = new System.Drawing.Point(881, 745);
+            this.btnSave.Location = new System.Drawing.Point(880, 701);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(79, 30);
             this.btnSave.TabIndex = 20;
@@ -264,7 +266,7 @@
             this.btnCancel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnCancel.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCancel.ForeColor = System.Drawing.Color.Black;
-            this.btnCancel.Location = new System.Drawing.Point(796, 745);
+            this.btnCancel.Location = new System.Drawing.Point(795, 701);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(79, 30);
             this.btnCancel.TabIndex = 21;
@@ -285,7 +287,7 @@
             this.groupBox1.Controls.Add(this.label7);
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.ForeColor = System.Drawing.Color.DodgerBlue;
-            this.groupBox1.Location = new System.Drawing.Point(16, 235);
+            this.groupBox1.Location = new System.Drawing.Point(16, 284);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(312, 235);
             this.groupBox1.TabIndex = 22;
@@ -317,6 +319,8 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.cbxMinimizeToTray);
+            this.groupBox2.Controls.Add(this.cbxDormammu);
             this.groupBox2.Controls.Add(this.cbxShowFancyTimer);
             this.groupBox2.Controls.Add(this.txtLogHistory);
             this.groupBox2.Controls.Add(this.label9);
@@ -329,7 +333,7 @@
             this.groupBox2.ForeColor = System.Drawing.Color.DodgerBlue;
             this.groupBox2.Location = new System.Drawing.Point(16, 12);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(312, 217);
+            this.groupBox2.Size = new System.Drawing.Size(312, 266);
             this.groupBox2.TabIndex = 23;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Program Settings";
@@ -339,27 +343,28 @@
             this.cbxShowFancyTimer.AutoSize = true;
             this.cbxShowFancyTimer.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbxShowFancyTimer.ForeColor = System.Drawing.Color.White;
-            this.cbxShowFancyTimer.Location = new System.Drawing.Point(13, 117);
+            this.cbxShowFancyTimer.Location = new System.Drawing.Point(13, 145);
             this.cbxShowFancyTimer.Name = "cbxShowFancyTimer";
-            this.cbxShowFancyTimer.Size = new System.Drawing.Size(168, 22);
+            this.cbxShowFancyTimer.Size = new System.Drawing.Size(173, 22);
             this.cbxShowFancyTimer.TabIndex = 17;
-            this.cbxShowFancyTimer.Text = "Display Time in h:m:s";
+            this.cbxShowFancyTimer.Text = "Display Timer in h:m:s";
             this.cbxShowFancyTimer.UseVisualStyleBackColor = true;
             // 
             // txtLogHistory
             // 
             this.txtLogHistory.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtLogHistory.Location = new System.Drawing.Point(210, 175);
+            this.txtLogHistory.Location = new System.Drawing.Point(210, 228);
             this.txtLogHistory.Name = "txtLogHistory";
             this.txtLogHistory.Size = new System.Drawing.Size(87, 24);
             this.txtLogHistory.TabIndex = 16;
+            this.txtLogHistory.Text = "100";
             // 
             // label9
             // 
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label9.ForeColor = System.Drawing.Color.White;
-            this.label9.Location = new System.Drawing.Point(10, 178);
+            this.label9.Location = new System.Drawing.Point(10, 231);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(189, 18);
             this.label9.TabIndex = 15;
@@ -376,7 +381,7 @@
             this.groupBox3.Controls.Add(this.txtTogglWorkspaceId);
             this.groupBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox3.ForeColor = System.Drawing.Color.DodgerBlue;
-            this.groupBox3.Location = new System.Drawing.Point(16, 476);
+            this.groupBox3.Location = new System.Drawing.Point(16, 525);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(312, 167);
             this.groupBox3.TabIndex = 24;
@@ -470,7 +475,7 @@
             this.groupBox4.ForeColor = System.Drawing.Color.DodgerBlue;
             this.groupBox4.Location = new System.Drawing.Point(349, 12);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(610, 369);
+            this.groupBox4.Size = new System.Drawing.Size(610, 428);
             this.groupBox4.TabIndex = 25;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Keyword Settings";
@@ -493,7 +498,7 @@
             this.btnDownProjectListItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.btnDownProjectListItem.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnDownProjectListItem.ForeColor = System.Drawing.Color.White;
-            this.btnDownProjectListItem.Location = new System.Drawing.Point(266, 211);
+            this.btnDownProjectListItem.Location = new System.Drawing.Point(266, 234);
             this.btnDownProjectListItem.Name = "btnDownProjectListItem";
             this.btnDownProjectListItem.Size = new System.Drawing.Size(57, 41);
             this.btnDownProjectListItem.TabIndex = 39;
@@ -506,7 +511,7 @@
             this.btnUpProjectListItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.btnUpProjectListItem.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnUpProjectListItem.ForeColor = System.Drawing.Color.White;
-            this.btnUpProjectListItem.Location = new System.Drawing.Point(266, 164);
+            this.btnUpProjectListItem.Location = new System.Drawing.Point(266, 187);
             this.btnUpProjectListItem.Name = "btnUpProjectListItem";
             this.btnUpProjectListItem.Size = new System.Drawing.Size(56, 41);
             this.btnUpProjectListItem.TabIndex = 38;
@@ -526,7 +531,7 @@
             this.lstProjects.ItemHeight = 18;
             this.lstProjects.Location = new System.Drawing.Point(10, 56);
             this.lstProjects.Name = "lstProjects";
-            this.lstProjects.Size = new System.Drawing.Size(249, 301);
+            this.lstProjects.Size = new System.Drawing.Size(249, 360);
             this.lstProjects.TabIndex = 37;
             this.lstProjects.ValueMember = "Name";
             this.lstProjects.SelectedIndexChanged += new System.EventHandler(this.lstProjects_SelectedIndexChanged);
@@ -595,7 +600,7 @@
             this.txtKeywordList.Location = new System.Drawing.Point(328, 59);
             this.txtKeywordList.Multiline = true;
             this.txtKeywordList.Name = "txtKeywordList";
-            this.txtKeywordList.Size = new System.Drawing.Size(268, 298);
+            this.txtKeywordList.Size = new System.Drawing.Size(268, 357);
             this.txtKeywordList.TabIndex = 31;
             // 
             // lblTogglProjects
@@ -605,9 +610,9 @@
             this.lblTogglProjects.ForeColor = System.Drawing.Color.White;
             this.lblTogglProjects.Location = new System.Drawing.Point(6, 34);
             this.lblTogglProjects.Name = "lblTogglProjects";
-            this.lblTogglProjects.Size = new System.Drawing.Size(104, 18);
+            this.lblTogglProjects.Size = new System.Drawing.Size(121, 18);
             this.lblTogglProjects.TabIndex = 30;
-            this.lblTogglProjects.Text = "Toggl Projects";
+            this.lblTogglProjects.Text = "Tracked Projects";
             // 
             // projectBindingSource
             // 
@@ -619,9 +624,9 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.lblMessages.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblMessages.ForeColor = System.Drawing.Color.White;
-            this.lblMessages.Location = new System.Drawing.Point(13, 745);
+            this.lblMessages.Location = new System.Drawing.Point(13, 701);
             this.lblMessages.Name = "lblMessages";
-            this.lblMessages.Size = new System.Drawing.Size(777, 30);
+            this.lblMessages.Size = new System.Drawing.Size(776, 30);
             this.lblMessages.TabIndex = 13;
             // 
             // projectKeywordsBindingSource
@@ -631,11 +636,12 @@
             // 
             // groupBox5
             // 
+            this.groupBox5.Controls.Add(this.txtNeutralWindows);
             this.groupBox5.Controls.Add(this.cbxStopOnNeutral);
             this.groupBox5.Controls.Add(this.label11);
             this.groupBox5.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox5.ForeColor = System.Drawing.Color.DodgerBlue;
-            this.groupBox5.Location = new System.Drawing.Point(349, 387);
+            this.groupBox5.Location = new System.Drawing.Point(349, 446);
             this.groupBox5.Name = "groupBox5";
             this.groupBox5.Size = new System.Drawing.Size(610, 246);
             this.groupBox5.TabIndex = 25;
@@ -673,19 +679,43 @@
             this.txtNeutralWindows.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.txtNeutralWindows.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtNeutralWindows.ForeColor = System.Drawing.Color.White;
-            this.txtNeutralWindows.Location = new System.Drawing.Point(359, 476);
+            this.txtNeutralWindows.Location = new System.Drawing.Point(9, 89);
             this.txtNeutralWindows.Multiline = true;
             this.txtNeutralWindows.Name = "txtNeutralWindows";
-            this.txtNeutralWindows.Size = new System.Drawing.Size(586, 148);
+            this.txtNeutralWindows.Size = new System.Drawing.Size(592, 148);
             this.txtNeutralWindows.TabIndex = 42;
+            // 
+            // cbxDormammu
+            // 
+            this.cbxDormammu.AutoSize = true;
+            this.cbxDormammu.Enabled = false;
+            this.cbxDormammu.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbxDormammu.ForeColor = System.Drawing.Color.DarkGray;
+            this.cbxDormammu.Location = new System.Drawing.Point(13, 173);
+            this.cbxDormammu.Name = "cbxDormammu";
+            this.cbxDormammu.Size = new System.Drawing.Size(107, 22);
+            this.cbxDormammu.TabIndex = 18;
+            this.cbxDormammu.Text = "Dormammu";
+            this.cbxDormammu.UseVisualStyleBackColor = true;
+            // 
+            // cbxMinimizeToTray
+            // 
+            this.cbxMinimizeToTray.AutoSize = true;
+            this.cbxMinimizeToTray.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbxMinimizeToTray.ForeColor = System.Drawing.Color.White;
+            this.cbxMinimizeToTray.Location = new System.Drawing.Point(13, 117);
+            this.cbxMinimizeToTray.Name = "cbxMinimizeToTray";
+            this.cbxMinimizeToTray.Size = new System.Drawing.Size(136, 22);
+            this.cbxMinimizeToTray.TabIndex = 19;
+            this.cbxMinimizeToTray.Text = "Minimize to Tray";
+            this.cbxMinimizeToTray.UseVisualStyleBackColor = true;
             // 
             // Settings
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.ClientSize = new System.Drawing.Size(971, 782);
-            this.Controls.Add(this.txtNeutralWindows);
+            this.ClientSize = new System.Drawing.Size(970, 738);
             this.Controls.Add(this.groupBox5);
             this.Controls.Add(this.lblMessages);
             this.Controls.Add(this.groupBox4);
@@ -712,7 +742,6 @@
             this.groupBox5.ResumeLayout(false);
             this.groupBox5.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -766,5 +795,7 @@
         private System.Windows.Forms.CheckBox cbxShowFancyTimer;
         private System.Windows.Forms.LinkLabel lnkRegisterNew;
         private System.Windows.Forms.PictureBox picRefreshButton;
+        private System.Windows.Forms.CheckBox cbxDormammu;
+        private System.Windows.Forms.CheckBox cbxMinimizeToTray;
     }
 }

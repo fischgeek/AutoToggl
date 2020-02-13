@@ -232,6 +232,30 @@ namespace AutoToggl
                 this.txtConsole.SelectedText = String.Empty;
             }
         }
+
+        private void Main_Resize(object sender, EventArgs e)
+        {
+            if (this.WindowState == FormWindowState.Minimized) {
+                Hide();
+                notifyIcon1.Visible = true;
+                notifyIcon1.Text = "AutoToggl is still running.";
+                notifyIcon1.ShowBalloonTip(3000);
+            }
+        }
+
+        private void notifyIcon1_DoubleClick(object sender, EventArgs e)
+        {
+            Show();
+            this.WindowState = FormWindowState.Normal;
+            notifyIcon1.Visible = false;
+        }
+
+        private void notifyIcon1_BalloonTipClicked(object sender, EventArgs e)
+        {
+            Show();
+            this.WindowState = FormWindowState.Normal;
+            this.Activate();
+        }
     }
 
     public enum MatchType
