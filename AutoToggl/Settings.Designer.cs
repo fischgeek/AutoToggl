@@ -52,6 +52,8 @@
             this.txtLogHistory = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.picRefreshButton = new System.Windows.Forms.PictureBox();
+            this.lnkRegisterNew = new System.Windows.Forms.LinkLabel();
             this.btnAddProject = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.ddlTogglProjects = new System.Windows.Forms.ComboBox();
@@ -78,6 +80,7 @@
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.picRefreshButton)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.togglProjectsBindingSource)).BeginInit();
             this.groupBox4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.trackedProjectBindingSource)).BeginInit();
@@ -142,6 +145,7 @@
             this.txtTogglAPIKey.Name = "txtTogglAPIKey";
             this.txtTogglAPIKey.Size = new System.Drawing.Size(284, 24);
             this.txtTogglAPIKey.TabIndex = 10;
+            this.txtTogglAPIKey.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtTogglAPIKey_KeyPress);
             // 
             // txtTogglWorkspaceId
             // 
@@ -196,9 +200,12 @@
             // 
             this.txtTogglUsername.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtTogglUsername.BackColor = System.Drawing.Color.DarkGray;
+            this.txtTogglUsername.Enabled = false;
             this.txtTogglUsername.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtTogglUsername.Location = new System.Drawing.Point(16, 55);
             this.txtTogglUsername.Name = "txtTogglUsername";
+            this.txtTogglUsername.ReadOnly = true;
             this.txtTogglUsername.Size = new System.Drawing.Size(281, 24);
             this.txtTogglUsername.TabIndex = 16;
             // 
@@ -206,9 +213,12 @@
             // 
             this.txtTogglPassword.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtTogglPassword.BackColor = System.Drawing.Color.DarkGray;
+            this.txtTogglPassword.Enabled = false;
             this.txtTogglPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtTogglPassword.Location = new System.Drawing.Point(16, 103);
             this.txtTogglPassword.Name = "txtTogglPassword";
+            this.txtTogglPassword.ReadOnly = true;
             this.txtTogglPassword.Size = new System.Drawing.Size(281, 24);
             this.txtTogglPassword.TabIndex = 18;
             this.txtTogglPassword.UseSystemPasswordChar = true;
@@ -357,6 +367,8 @@
             // 
             // groupBox3
             // 
+            this.groupBox3.Controls.Add(this.picRefreshButton);
+            this.groupBox3.Controls.Add(this.lnkRegisterNew);
             this.groupBox3.Controls.Add(this.btnAddProject);
             this.groupBox3.Controls.Add(this.label1);
             this.groupBox3.Controls.Add(this.ddlTogglProjects);
@@ -366,20 +378,48 @@
             this.groupBox3.ForeColor = System.Drawing.Color.DodgerBlue;
             this.groupBox3.Location = new System.Drawing.Point(16, 476);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(312, 143);
+            this.groupBox3.Size = new System.Drawing.Size(312, 167);
             this.groupBox3.TabIndex = 24;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Toggl Settings";
+            // 
+            // picRefreshButton
+            // 
+            this.picRefreshButton.AccessibleDescription = "";
+            this.picRefreshButton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.picRefreshButton.Image = global::AutoToggl.Properties.Resources.refresh;
+            this.picRefreshButton.Location = new System.Drawing.Point(281, 100);
+            this.picRefreshButton.Name = "picRefreshButton";
+            this.picRefreshButton.Size = new System.Drawing.Size(25, 25);
+            this.picRefreshButton.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.picRefreshButton.TabIndex = 42;
+            this.picRefreshButton.TabStop = false;
+            this.picRefreshButton.Click += new System.EventHandler(this.picRefreshButton_Click);
+            this.picRefreshButton.MouseEnter += new System.EventHandler(this.picRefreshButton_MouseEnter);
+            this.picRefreshButton.MouseLeave += new System.EventHandler(this.picRefreshButton_MouseLeave);
+            // 
+            // lnkRegisterNew
+            // 
+            this.lnkRegisterNew.AutoSize = true;
+            this.lnkRegisterNew.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lnkRegisterNew.LinkColor = System.Drawing.Color.DodgerBlue;
+            this.lnkRegisterNew.Location = new System.Drawing.Point(6, 132);
+            this.lnkRegisterNew.Name = "lnkRegisterNew";
+            this.lnkRegisterNew.Size = new System.Drawing.Size(194, 16);
+            this.lnkRegisterNew.TabIndex = 41;
+            this.lnkRegisterNew.TabStop = true;
+            this.lnkRegisterNew.Text = "Register a new Project in Toggl";
+            this.lnkRegisterNew.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lnkRegisterNew_LinkClicked);
             // 
             // btnAddProject
             // 
             this.btnAddProject.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAddProject.ForeColor = System.Drawing.Color.Black;
-            this.btnAddProject.Location = new System.Drawing.Point(220, 101);
+            this.btnAddProject.Location = new System.Drawing.Point(244, 100);
             this.btnAddProject.Name = "btnAddProject";
-            this.btnAddProject.Size = new System.Drawing.Size(75, 29);
+            this.btnAddProject.Size = new System.Drawing.Size(31, 29);
             this.btnAddProject.TabIndex = 15;
-            this.btnAddProject.Text = "Add";
+            this.btnAddProject.Text = "+";
             this.btnAddProject.UseVisualStyleBackColor = true;
             this.btnAddProject.Click += new System.EventHandler(this.btnAddProject_Click);
             // 
@@ -403,10 +443,10 @@
             this.ddlTogglProjects.FormattingEnabled = true;
             this.ddlTogglProjects.IntegralHeight = false;
             this.ddlTogglProjects.ItemHeight = 18;
-            this.ddlTogglProjects.Location = new System.Drawing.Point(7, 103);
+            this.ddlTogglProjects.Location = new System.Drawing.Point(7, 102);
             this.ddlTogglProjects.MaxDropDownItems = 88;
             this.ddlTogglProjects.Name = "ddlTogglProjects";
-            this.ddlTogglProjects.Size = new System.Drawing.Size(207, 26);
+            this.ddlTogglProjects.Size = new System.Drawing.Size(231, 26);
             this.ddlTogglProjects.TabIndex = 13;
             this.ddlTogglProjects.ValueMember = "name";
             // 
@@ -597,7 +637,7 @@
             this.groupBox5.ForeColor = System.Drawing.Color.DodgerBlue;
             this.groupBox5.Location = new System.Drawing.Point(349, 387);
             this.groupBox5.Name = "groupBox5";
-            this.groupBox5.Size = new System.Drawing.Size(610, 232);
+            this.groupBox5.Size = new System.Drawing.Size(610, 246);
             this.groupBox5.TabIndex = 25;
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "Neutral Window Settings";
@@ -605,8 +645,9 @@
             // cbxStopOnNeutral
             // 
             this.cbxStopOnNeutral.AutoSize = true;
-            this.cbxStopOnNeutral.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbxStopOnNeutral.ForeColor = System.Drawing.Color.White;
+            this.cbxStopOnNeutral.Enabled = false;
+            this.cbxStopOnNeutral.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbxStopOnNeutral.ForeColor = System.Drawing.Color.DimGray;
             this.cbxStopOnNeutral.Location = new System.Drawing.Point(10, 37);
             this.cbxStopOnNeutral.Name = "cbxStopOnNeutral";
             this.cbxStopOnNeutral.Size = new System.Drawing.Size(305, 22);
@@ -635,7 +676,7 @@
             this.txtNeutralWindows.Location = new System.Drawing.Point(359, 476);
             this.txtNeutralWindows.Multiline = true;
             this.txtNeutralWindows.Name = "txtNeutralWindows";
-            this.txtNeutralWindows.Size = new System.Drawing.Size(586, 129);
+            this.txtNeutralWindows.Size = new System.Drawing.Size(586, 148);
             this.txtNeutralWindows.TabIndex = 42;
             // 
             // Settings
@@ -661,6 +702,7 @@
             this.groupBox2.PerformLayout();
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.picRefreshButton)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.togglProjectsBindingSource)).EndInit();
             this.groupBox4.ResumeLayout(false);
             this.groupBox4.PerformLayout();
@@ -722,5 +764,7 @@
         private System.Windows.Forms.LinkLabel lnkTestAuth;
         private System.Windows.Forms.LinkLabel lnkDeleteTrackedProject;
         private System.Windows.Forms.CheckBox cbxShowFancyTimer;
+        private System.Windows.Forms.LinkLabel lnkRegisterNew;
+        private System.Windows.Forms.PictureBox picRefreshButton;
     }
 }

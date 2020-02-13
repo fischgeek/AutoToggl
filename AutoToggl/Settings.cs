@@ -9,6 +9,7 @@ using System.Linq;
 using System.Text.RegularExpressions;
 using System.Drawing;
 using System.Threading.Tasks;
+using System.Diagnostics;
 
 namespace AutoToggl
 {
@@ -135,6 +136,7 @@ namespace AutoToggl
         {
             lnkTestAuth.Visible = false;
             lblConnectionStatus.Visible = true;
+            tb.Init(txtTogglAPIKey.Text, Convert.ToInt32(txtTogglWorkspaceId.Text));
             var me = tb.GetMe();
             if (me == null) {
                 lblConnectionStatus.ForeColor = Color.Red;
@@ -177,6 +179,34 @@ namespace AutoToggl
             }
             dh.SaveTrackedProjects(trackedProjectsBindingList.ToList());
             lstProjects.SetSelected(newIndex, true);
+        }
+
+        private void lnkRegisterNew_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            Process.Start($"https://toggl.com/app/projects/{txtTogglWorkspaceId.Text}/list");
+        }
+
+        private void picRefreshButton_MouseEnter(object sender, EventArgs e)
+        {
+            picRefreshButton.Image = Properties.Resources.refresh_hover;
+        }
+
+        private void picRefreshButton_MouseLeave(object sender, EventArgs e)
+        {
+            picRefreshButton.Image = Properties.Resources.refresh;
+        }
+
+        private void picRefreshButton_Click(object sender, EventArgs e)
+        {
+            ddlTogglProjects.DataSource = tb.GetProjects();
+            ddlTogglProjects.DisplayMember = "name";
+            ddlTogglProjects.ValueMember = "id";
+        }
+
+        private void txtTogglAPIKey_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            lnkTestAuth.Visible = true;
+            lblConnectionStatus.Visible = false;
         }
     }
 

@@ -113,6 +113,7 @@
             // 
             // picMenu
             // 
+            this.picMenu.Cursor = System.Windows.Forms.Cursors.Hand;
             this.picMenu.Image = global::AutoToggl.Properties.Resources.menu;
             this.picMenu.Location = new System.Drawing.Point(12, 12);
             this.picMenu.Name = "picMenu";

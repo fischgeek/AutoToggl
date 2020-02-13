@@ -114,6 +114,8 @@
   <ItemGroup>
     <Content Include="Resources\menu.png" />
     <Content Include="Resources\menu_hover.png" />
+    <Content Include="Resources\refresh.png" />
+    <Content Include="Resources\refresh_hover.png" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\DesktopProjectDataHandler\DesktopProjectDataHandler.csproj">
