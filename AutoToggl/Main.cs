@@ -25,6 +25,7 @@ namespace AutoToggl
         {
             InitializeComponent();
             ApplySettings();
+            HideConsole();
 
             timer.Interval = settings.CheckInterval;
             timer.Tick += Timer_Tick;
@@ -40,7 +41,6 @@ namespace AutoToggl
         private void ApplySettings()
         {
             settings = dh.GetSettings();
-            HideConsole();
             pnlFancyTimer.Visible = settings.ShowFancyTimer;
             lblTimer.Visible = !settings.ShowFancyTimer;
         }
@@ -68,6 +68,7 @@ namespace AutoToggl
         {
             var clr = Color.White;
             var win = GetActiveWindowTitle();
+            ApplySettings();
 
             if (!idle) {
                 var currentActive = GetActiveWindowTitle();

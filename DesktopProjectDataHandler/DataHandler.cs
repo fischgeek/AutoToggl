@@ -34,6 +34,11 @@ namespace DesktopProjectDataHandler
                     throw new Exception("Failed to create data file.");
                 }
             }
+            LoadDataFromFile();
+        }
+
+        private void LoadDataFromFile()
+        {
             string dataFileContents = string.Empty;
             try {
                 dataFileContents = File.ReadAllText(dataFile);
@@ -41,6 +46,7 @@ namespace DesktopProjectDataHandler
                 throw new Exception("Failed to read the data file.");
             }
             storedData = JsonConvert.DeserializeObject<StoredData>(dataFileContents);
+            storedData.Loaded = File.GetLastWriteTime(dataFile);
             if (storedData == null) {
                 storedData = StoredData.GetInstance();
             }
@@ -66,7 +72,13 @@ namespace DesktopProjectDataHandler
             return Guid.NewGuid().ToString();
         }
 
-        public Settings GetSettings() => storedData.Settings;
+        public Settings GetSettings()
+        {
+            if (storedData.Loaded != File.GetLastWriteTime(dataFile)) {
+                LoadDataFromFile();
+            }
+            return storedData.Settings;
+        }
 
         public void UpdateSettings(Settings settingsFromDialog)
         {

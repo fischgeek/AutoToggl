@@ -52,7 +52,7 @@
             this.lblTimer.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.lblTimer.Font = new System.Drawing.Font("Segoe UI", 72F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTimer.ForeColor = System.Drawing.Color.DodgerBlue;
-            this.lblTimer.Location = new System.Drawing.Point(612, -17);
+            this.lblTimer.Location = new System.Drawing.Point(596, -17);
             this.lblTimer.Margin = new System.Windows.Forms.Padding(0);
             this.lblTimer.Name = "lblTimer";
             this.lblTimer.Size = new System.Drawing.Size(211, 128);
@@ -88,7 +88,7 @@
             // 
             this.lnkToggleConsole.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.lnkToggleConsole.LinkColor = System.Drawing.Color.DodgerBlue;
-            this.lnkToggleConsole.Location = new System.Drawing.Point(698, 225);
+            this.lnkToggleConsole.Location = new System.Drawing.Point(682, 225);
             this.lnkToggleConsole.Name = "lnkToggleConsole";
             this.lnkToggleConsole.Size = new System.Drawing.Size(87, 23);
             this.lnkToggleConsole.TabIndex = 6;
@@ -107,7 +107,7 @@
             this.txtConsole.ForeColor = System.Drawing.Color.White;
             this.txtConsole.Location = new System.Drawing.Point(13, 257);
             this.txtConsole.Name = "txtConsole";
-            this.txtConsole.Size = new System.Drawing.Size(776, 400);
+            this.txtConsole.Size = new System.Drawing.Size(760, 400);
             this.txtConsole.TabIndex = 7;
             this.txtConsole.Text = "";
             this.txtConsole.Visible = false;
@@ -146,13 +146,14 @@
             // 
             // pnlFancyTimer
             // 
+            this.pnlFancyTimer.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.pnlFancyTimer.Controls.Add(this.label5);
             this.pnlFancyTimer.Controls.Add(this.lblSec);
             this.pnlFancyTimer.Controls.Add(this.label2);
             this.pnlFancyTimer.Controls.Add(this.lblMin);
             this.pnlFancyTimer.Controls.Add(this.label1);
             this.pnlFancyTimer.Controls.Add(this.lblHr);
-            this.pnlFancyTimer.Location = new System.Drawing.Point(332, 5);
+            this.pnlFancyTimer.Location = new System.Drawing.Point(316, 5);
             this.pnlFancyTimer.Name = "pnlFancyTimer";
             this.pnlFancyTimer.Size = new System.Drawing.Size(457, 86);
             this.pnlFancyTimer.TabIndex = 9;
@@ -238,7 +239,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.ClientSize = new System.Drawing.Size(801, 671);
+            this.ClientSize = new System.Drawing.Size(785, 671);
             this.Controls.Add(this.pnlFancyTimer);
             this.Controls.Add(this.picMenu);
             this.Controls.Add(this.txtConsole);

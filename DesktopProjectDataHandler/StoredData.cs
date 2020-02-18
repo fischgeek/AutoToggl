@@ -11,6 +11,7 @@ namespace DesktopProjectDataHandler
         public Settings Settings = new Settings();
         public List<TrackedProject> TrackedProjects = new List<TrackedProject>();
         private static StoredData instance = new StoredData();
+        public DateTime Loaded = new DateTime();
 
         private StoredData() { }
 
