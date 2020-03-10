@@ -249,6 +249,7 @@
             this.Controls.Add(this.lblTimer);
             this.Name = "Main";
             this.Text = "AutoToggl";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Main_FormClosing);
             this.Shown += new System.EventHandler(this.Main_Shown);
             this.Resize += new System.EventHandler(this.Main_Resize);
             ((System.ComponentModel.ISupportInitialize)(this.picMenu)).EndInit();

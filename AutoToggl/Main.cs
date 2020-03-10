@@ -257,6 +257,12 @@ namespace AutoToggl
             this.WindowState = FormWindowState.Normal;
             this.Activate();
         }
+
+        private void Main_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            this.Hide();
+            tb.StopRunningTimer();
+        }
     }
 
     public enum MatchType
