@@ -6,6 +6,8 @@ using TogglConnect;
 using SharedLibrary;
 using DesktopProjectDataHandler;
 using System.Text.RegularExpressions;
+using System.Diagnostics;
+using System.Configuration;
 
 namespace AutoToggl
 {
@@ -18,6 +20,7 @@ namespace AutoToggl
         DesktopProjectDataHandler.Settings settings;
         public static string lastActive = string.Empty;
         public static bool idle = false;
+        public static bool sentIdleMessage = false;
         public static bool aTimerIsRunning = false;
         private static TimeEntry runningTimeEntry = new TimeEntry();
 
@@ -69,7 +72,11 @@ namespace AutoToggl
             var clr = Color.White;
             var win = GetActiveWindowTitle();
             ApplySettings();
-
+            if (GetLastInputTime() >= 60) {
+                idle = true;
+            } else {
+                idle = false;
+            }
             if (!idle) {
                 var currentActive = GetActiveWindowTitle();
                 if (CurrentActiveIsValid(currentActive)) {
@@ -77,32 +84,43 @@ namespace AutoToggl
                     foreach (var project in dh.GetTrackedProjects()) {
                         if (KeywordExistsInActiveWindowTitle(project, currentActive)) {
                             StartTimer(project, currentActive);
+                            sentIdleMessage = false;
                             anyMatches = true;
                             break;
                         }
                     }
                     if (!anyMatches && aTimerIsRunning) {
-                        win = "Window doesn't match any keywords in any projects. Stopping timer.";
-                        clr = Color.Red;
-                        lblTrackingProjectTitle.Text = "";
-                        tb.StopRunningTimer();
-                        secondTimer.Stop();
-                        lblTimer.Text = "0";
-                        lblHr.Text = "0";
-                        lblMin.Text = "0";
-                        lblSec.Text = "0";
-                        aTimerIsRunning = false;
-                        runningTimeEntry = new TimeEntry();
+                        StopAndReset("Window doesn't match any keywords in any projects. Stopping timer.");
                     }
                     lastActive = currentActive;
                 } else {
                     //lblTimer.Text = tb.CalculateDuration(runningTimeEntry.duration).TotalSeconds.ToString();
                 }
+                if (IsNeutralWindow(win ?? "")) {
+                    clr = Color.Orange;
+                }
+                txtConsole.AppendTimeStampedLine(win, clr);
+            } else {
+                if (!sentIdleMessage) {
+                    StopAndReset("Idle threshold met. Stopping timer.");
+                    sentIdleMessage = true;
+                }
             }
+        }
 
-            if (win == "AutoToggl") {
-                clr = Color.Green;
-            }
+        private void StopAndReset(string stopMessage)
+        {
+            var win = stopMessage;
+            var clr = Color.Red;
+            lblTrackingProjectTitle.Text = "";
+            tb.StopRunningTimer();
+            secondTimer.Stop();
+            lblTimer.Text = "0";
+            lblHr.Text = "0";
+            lblMin.Text = "0";
+            lblSec.Text = "0";
+            aTimerIsRunning = false;
+            runningTimeEntry = new TimeEntry();
             txtConsole.AppendTimeStampedLine(win, clr);
         }
 
@@ -227,11 +245,12 @@ namespace AutoToggl
 
         private void txtConsole_TextChanged(object sender, EventArgs e)
         {
-            if (txtConsole.Lines.Count() >= 100) {
-                txtConsole.SelectionStart = txtConsole.GetFirstCharIndexFromLine(0);
-                txtConsole.SelectionLength = this.txtConsole.Lines[0].Length + 1;
-                this.txtConsole.SelectedText = String.Empty;
-            }
+            //if (txtConsole.Lines.Count() >= 100) {
+            //    txtConsole.SelectionStart = txtConsole.GetFirstCharIndexFromLine(0);
+            //    txtConsole.SelectionLength = this.txtConsole.Lines[0].Length + 1;
+            //    this.txtConsole.SelectedText = String.Empty;
+            //    //this.txtConsole.ScrollToCaret();
+            //}
         }
 
         private void Main_Resize(object sender, EventArgs e)
